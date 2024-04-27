@@ -186,14 +186,18 @@ hr {
     border: 1px solid #dee2e6; /* Borda sutil */
     border-radius: 0.25rem; /* Bordas arredondadas */
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Sombra suave para profundidade */
+    margin-bottom: 60px; /* Margem inferior */
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo branco com transparência */
+    padding: 24px; /* Espaçamento interno */
 }
+
 #home-summary {
     display: block; /* Torna o elemento <i> se comportar como um bloco para aplicar margens e paddings */
     margin-top: 20px; /* Margem superior */
-    margin-bottom: 20px; /* Margem inferior */
+    margin-bottom: 50px; /* Margem inferior */
     padding: 10px; /* Recuo interno em todas as direções */
-    background-color: #f9f9f9; /* Cor de fundo claro para destacar */
     border-left: 5px solid #03356b; /* Uma borda à esquerda para destaque */
+    background-color: rgba(255, 255, 255, 0.7); 
     color: #333; /* Cor do texto */
     font-style: normal; /* Como estamos usando <i>, isso anula o itálico */
     font-size: 14px; /* Tamanho do texto */
