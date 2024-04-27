@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1jsewb%sc@lalr_&s#+!_s3oov2ybrq=tw#ax*lki_$eub-i2p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['34.27.1.182']
+ALLOWED_HOSTS = ['34.30.228.75']
 
 
 # Application definition
@@ -90,7 +90,7 @@ DATABASES = {
 
 #==========================================================================
 
-# Database instancia teste
+# Database instancia 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
