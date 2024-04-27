@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %} {{ principios.principio_name }} {% endblock 'title' %} 
+{% block description %}{{principios.meta_description}}{% endblock description %}
+{% block keywords %}{{principios.keyword}}{% endblock keywords %}
+
+{% block 'principio_single' %}
+<br>
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8" id="main-content">
+            <br>
+            <h1 id="title-post-h1" style="text-transform: uppercase;">{{object.principio_name}}</h1>          
+            <small>Pub: {{object.date_created}}</small>
+            <small>Principio: {{object.principio_name}}</small><br>
+            <small>Ramo do: </small>  | <span class="badge bg-dark">{{object.ramo_direito}}</span> 
+            <hr>
+            <img src="{% static 'images/destaque_principios.jpg' %}" alt="Princípios do Direito" class="article-image">
+            <div class="article-summary">
+            <h5>&#x1F4DC; {{object.principio_name}}</h5>
+            <i>{{object.meta_description}}</i>
+            </div> 
+            <p>{{object.content_principio | safe}}</p>
+            <br>
+            <div class="news-footer">
+                <span class="coracao">&#9829; &#9829; &#9829; &#9829; &#9829;</span><small> Xlex</small>                           
+                <br>
+                <span style="color: rgb(79, 79, 79);">Obrigado pela leitura!</span>
+                <br><br>
+                <small><strong>Principio: </strong>{{object.principio_name}}</small><br>
+                <small><strong>Categoria: </strong>{{object.ramo_direito}}</small><br>
+                <small><strong>Pub: </strong>{{object.date_created}}</small><br>
+                <small><strong>Views: </strong>{{object.views}}</small>
+            </div>
+            <hr>
+            <h5>⚖️ Leia também</h5>
+            <div class="links-externos">
+                <a href="https://xlex.com.br/artigos/post/constitucionalismo-um-fenomeno-social/" target="_blank" rel="noopener noreferrer">Surgimento do Constitucionalismo</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Constitucionalismo Social</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">Resolução Ambiental CONAMA</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">História do Direito Ambiental</a>
+            </div>
+
+            <h5>🔗 Links ùteis</h5>            
+            <div class="links-externos">
+
+                <a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" target="_blank" rel="noopener noreferrer">Código Civil - Lei 10.406/2002</a>
+                <a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm" target="_blank" rel="noopener noreferrer">Código Penal - DL 2.848/1940</a>
+                <a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm" target="_blank" rel="noopener noreferrer">Constituição Federal - CF/1988</a>
+                <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm" target="_blank" rel="noopener noreferrer">Código de Processo Civil - Lei 13.105/2015</a>
+                <a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del3689.htm" target="_blank" rel="noopener noreferrer">Código de Processo Penal - DL 3.689/1941</a>
+            </div>
+        </div>
+{% endblock 'principio_single' %}

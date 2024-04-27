@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}Contate-nos{% endblock 'title' %}
+{% block description %}Xlex Educação e Pesquisa Jurídica. Página de Contato{% endblock description %}
+{% block keywords %}Xlex Educação Contato{% endblock keywords %}
+
+{% block 'contact_us' %}
+
+<div class="content-container">
+    <img src="{% static 'images/destaque_contato.jpg' %}" alt="Página de Contato Xlex" class="article-image">
+    <div class="article-summary">
+        <h1 id="title-post-h1" style="text-transform: uppercase;">Contate-nos</h1>
+        <i>Ficaremos feliz em receber sua mensagem!</i><br>
+        <i>Xlex Educação e Pesquisa Jurídica e Desenvolvimento Social</i>
+    </div>
+    {% if success %}
+    <br>
+    <div class="alert alert-success" role="alert">
+    Sua mensagem foi enviada com sucesso! Agradecemos pelo contato. <br>
+    Retornaremos assim que possível. .MR
+    </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <p>Certifique-se de que todos os campos foram preenchidos. Responderemos assim que possível.</p>
+        <button class="btn btn-dark btn-sm" type="submit">Enviar Mensagem</button>
+    </form>
+    <br>
+    <span class="coracao">&#9829; &#9829; &#9829; &#9829; &#9829;</span>                           
+    <small style="color: rgb(154, 152, 152);"><i>Xlex Love Lex</i></small>
+
+
+</div>
+
+{% endblock 'contact_us' %}

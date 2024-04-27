@@ -1,13 +1,266 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="pt-bt">
-<head>
+<html lang="pt-br">
+  {% load static %}
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_home.css' %}">
-    <title>Xlex</title>
+    <title>{% block title %}{{ home_site.title }}{% endblock title %}</title>    
+    <meta name="description" content="{{ home_site.meta_description }}">
+    <meta name="keywords" content="{{ home_site.keyword }}">
+    <meta name="founder" content="{{ home_site.founder }}">
+    <link rel="canonical" href="http://www.xlexedu.com/">
+    <link rel="icon" sizes="48x48" type="image/png" href="{% static 'images/favicon-48x48.png' %}">
+    <link rel="icon" sizes="96x96" type="image/png" href="{% static 'images/favicon-96x96.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles_home.css' %}">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    {% if home_site.indexable %}
+    <meta name="robots" content="index, follow">
+    {% else %}
+    <meta name="robots" content="noindex, follow">
+    {% endif %}
+
 </head>
 <body>
-    <h1 class="teste">Home, Hello Word</h1>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="welcome-container">
+            <h1 class="site-title">{{ home_site.title }}</h1>
+            <div id="site-description">{{ home_site.site_description }}</div>
+            <br>
+            <!-- Efeito de digitação dinâmico JS -->
+            <span><span id="typing-effect" class="highlighted-text"></span></span>
+            <br>
+        </div>
+    </div>
+    <div class="logo-section">
+    <a href="/">
+        <img src="{% static 'images/logo.png' %}" alt="Logo Xlex Educação e Pesquisa Jurídica" width="62px">
+    </a>        
+    </div>
+    <!-- Container para os cards --> 
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Card Link -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="#" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F4DA; Artigos</h5>
+                            <p class="card-text">Explorando temas jurídicos atuais e relevantes. Show</p>
+                        </div>      
+                    </div> 
+                </a>          
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="#" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F58B;&#xFE0F; Questões da OAB</h5>
+                            <p class="card-text">Preparação eficaz com questões comentadas.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="#" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F4D6; Casos Concretos</h5>
+                            <p class="card-text">Estudo e resolução de casos prátricos.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="#" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x2696;&#xFE0F; Súmulas</h5>
+                            <p class="card-text">Acesse e entenda as decisões consolidadas.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="{% url 'app_home:jurisprudencias-page-list' %}" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F3DB;&#xFE0F; Jurisprudências</h5>
+                            <p class="card-text">Pesquise sobre as decisões judiciais para o seu caso. Painel-Tribunais</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="#" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x2712; Educação Social</h5>
+                            <p class="card-text">Engajamento com questões sociais e jurídicas.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="#" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F4CB; Modelos e Peças</h5>
+                            <p class="card-text">Recursos legais prontos para servir de base.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="{% url 'app_principios:principios-list' %}" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F4DC; Princípios do Direito</h5>
+                            <p class="card-text">Compreenda os fundamentos do Direito.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="{% url 'app_home:sobre-nos' %}" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F465; Sobre Nós</h5>
+                            <p class="card-text">Conheça-nos e saiba mais sobre o Xlex</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4">
+                <a href="{% url 'app_home:contact-us' %}" class="card-link">
+                    <div class="card" id="card">
+                        <div class="card-body">
+                            <h5 class="card-title">&#x1F4E7; Contate-nos</h5>
+                            <p class="card-text">Entre em contato para mais informações.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Replica cards -->
+        </div>
+        <hr>
+    </div>
+
+</div>
+    <div class="hero-section">
+        <div class="container">
+            <div class="row align-items-center my-5">
+                <div class="col-md-6">
+                    {% if home_site.image %}
+                    <img src="{{ home_site.image.url }}" alt="{{ home_site.title }}" class="img-fluid">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    <h1 id="title-post-h1" style="text-transform: uppercase;">Desenvolvimento Social</h1>
+                    <p>O conhecimento jurídico e constitucional-democrático é fundamental para a sociedade, pois promove a conscientização sobre direitos 
+                        e deveres, além de fomentar a participação cívica ativa. Ao entender as leis que regem um país, os cidadãos são capacitados 
+                        a exigir seus direitos, cumprir seus deveres e participar efetivamente dos processos políticos, contribuindo assim para uma 
+                        governança mais transparente e justa. Esse conhecimento também auxilia na construção de uma cultura de respeito às 
+                        instituições e à legalidade, o que é essencial para o desenvolvimento social sustentável e para a manutenção da 
+                        ordem democrática, facilitando a resolução de conflitos de forma pacífica e baseada no diálogo 
+                        e no entendimento mútuo</p>
+                </div>
+            </div>
+            <hr>
+            <!-- Outras seções repetidas com ajustes similares -->
+            <div class="row align-items-center my-5">
+                <div class="col-md-6">
+                    <img src="{% static 'images/destaque_poder_judiciario.jpg' %}" alt="Importância do Poder Judiciário" class="img-fluid">
+                </div>
+                <div class="col-md-6">
+                    <h1 id="title-post-h1" style="text-transform: uppercase;">A Importância do Poder Judiciário</h1>
+                    <p>O Poder Judiciário desempenha um papel crucial em um estado democrático de direito, sendo essencial para a 
+                        manutenção da justiça e do equilíbrio entre os poderes. Atua como garantidor dos direitos e liberdades 
+                        fundamentais, assegurando que todos os atos governamentais e privados estejam em conformidade com a lei. 
+                        Sua função de interpretar e aplicar a lei de forma imparcial protege os indivíduos de abusos e excessos, 
+                        contribuindo para a estabilidade social e para a confiança nas instituições. Além disso, o Judiciário 
+                        promove a resolução de conflitos através de meios pacíficos e justos, essencial para a coesão e para o 
+                        progresso contínuo de uma sociedade democrática.</p>
+                </div>
+            </div>
+            <hr>
+            <!-- Mais conteúdo conforme necessário -->
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row align-items-center my-5">
+            <div class="col-md-6">
+                <h1 id="title-post-h1" style="text-transform: uppercase; color: #0056b3;">Seriedade e Poder</h1>
+                <div class="pl-3 border-left border-primary">
+                    <p class="text-muted">No Brasil, o Poder Judiciário é reconhecido por sua força e seriedade, exercendo uma influência significativa na manutenção da ordem constitucional e na proteção dos direitos civis.</p>
+                    <p class="text-muted">Composto por diversas instâncias, incluindo o Supremo Tribunal Federal como órgão máximo, o judiciário brasileiro tem a responsabilidade de assegurar que a legislação do país seja aplicada de maneira equânime, respeitando os princípios da legalidade e da justiça.</p>
+                    <p class="text-muted">A atuação do Judiciário no Brasil é um baluarte contra a corrupção e o desvio de poder, sendo frequentemente chamado a intervir em questões complexas que envolvem interesses de grande relevância pública e política, reafirmando seu papel como pilar fundamental da democracia brasileira.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1 id="title-post-h1" style="text-transform: uppercase; color: #0056b3;">Nosso Compromisso</h1>
+                <div class="pl-3 border-left border-primary">
+                    <p class="text-muted">O Xlex mantém um dever inabalável com os princípios democráticos do estado de direito, conforme instituídos pela Constituição Federal.</p>
+                    <p class="text-muted">Com uma dedicação rigorosa à legalidade e à justiça, o Xlex opera respeitando as diretrizes constitucionais que garantem a liberdade, a igualdade e a dignidade de todos os cidadãos.</p>
+                    <p class="text-muted">O Xlex reforça o seu compromisso para a construção de um ambiente social estável e próspero, no qual o estado de direito seja o alicerce do desenvolvimento sustentável e inclusivo do Brasil.</p>
+                    <p class="font-italic">Xlex Educação Pesquisa Jurídica</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Certifique-se de incluir o CSS do Bootstrap no <head> do seu documento HTML -->
+
+
+<!--Footer--> 
+<footer>
+
+    <div class="footer-container">
+        <!-- Título do Footer -->
+        <h2 class="highlighted-text">XLEX, LOVE LEX!</h2>
+        {% if home_site %}
+            <p>Views: {{ home_site.views }}</p>
+        {% endif %}
+        
+        <h6 style="color: white;">
+            Agradecemos sua visita e o interesse pelo nosso conteúdo. Convidamos você a explorar outras 
+            seções do site. Faça um tour!
+        </h6>
+        <h6>{{home_site.meta_title}}</h6>
+        <!-- Informações da Marca -->
+        <div class="footer-brand-info">
+            <p class="footer-brand-info">&copy; 2023 Xlex Educação Pesquisa Jurídica e Desenvolvimento Social. Todos os direitos reservados.</p>
+            <small>By: Marcos Rodrigues</small>
+        </div>
+  
+    </div>
+    <!-- -->
+</footer>
+
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="{% static 'js/phrase.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1NX8363QKD"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1NX8363QKD'); </script>
 </html>

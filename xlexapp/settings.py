@@ -23,10 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1jsewb%sc@lalr_&s#+!_s3oov2ybrq=tw#ax*lki_$eub-i2p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+
 DEBUG = False
+#DEBUG = True
 
 ALLOWED_HOSTS = ['34.30.228.75']
-
+#ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -38,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_home',
+    'app_manager',
+    'app_principios',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'app_principios.context_processors.principio_randomico',
             ],
         },
     },

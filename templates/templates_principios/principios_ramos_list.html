@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block 'title' %}{{ramo.name}}{% endblock 'title' %}
+{% block description %}{{ramo.meta_descripton}}{% endblock description %}
+{% block keywords %}Princípios, Contitucional Penal Civil {% endblock keywords %}
+
+{% block 'principios_ramo' %}
+<br>
+<div class="container">
+    <div class="row g-5">
+        <!--Col md 8 -->
+        <div class="col-md-8"> 
+
+            <div class="col-md-12 px-0">
+                <h1 id="title-post-h1">Principios | Ramo do: {{ ramo.name }}</h1>
+                <span>
+                    Nesta página, estão listadas os princípios, conforme o <strong>ramo do direito</strong> selecionada.
+                </span><br><br>
+            </div>
+            <div class="album py-5">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
+                    <!--Bloco -->
+                    {% for principio in principios %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body d-flex flex-column" id="bolinha-educacao" style="height: 100%;">
+                                <div style="flex-grow: 1;">
+                                    <code class="card-code">{{principio.code}}</code>
+                                    <br>
+                                    <p class="card-date">Pub: {{principio.date_created}}
+                                    </p>
+                                    <hr>
+                                    <span class="card-title">
+                                        <a href="{{ principio.get_absolute_url }}">{{ principio.principio_name | slice:":47" }}</a>
+                                    </span><br>
+                                    <small class="card-category">Ramo do:
+                                        <a class="card-a-category" href="{% url 'app_principios:principios-ramo-direito' principio.ramo_direito.slug %}">{{ principio.ramo_direito.name }}</a>
+                                    </small>
+                                    <hr>
+                                    <p class="card-description">{{principio.meta_description | slice:'145'}}</p>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a class="a-link" href="{{ principio.get_absolute_url }}">Ler Principio...</a> 
+                                        </div>
+                                        <small class="text-muted">Xlex</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+{% endblock 'principios_ramo' %}

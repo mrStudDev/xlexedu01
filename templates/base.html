@@ -1,0 +1,697 @@
+<!-- 
+Template Name: Layout-Xlex
+Template Version: 1.0.0
+Developed By: Marcos Rodrigues
+Website: https://www.xlex.com.br
+License: MIT License
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}Ideal para profissionais do Direito, acadêmicos e cidadãos interessados no impacto das leis.{% endblock description %}">
+    <meta name="keywords" content="{% block keywords %}Xlex Educação Pesquisa Jurídica{% endblock keywords %}">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    <link rel="icon" sizes="48x48" type="image/png" href="{% static 'images/favicon-48x48.png' %}">
+    <link rel="icon" sizes="96x96" type="image/png" href="{% static 'images/favicon-96x96.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <title>{% block 'title' %}Xlex Educação e Pesquisa Jurídica{% endblock 'title' %}</title>
+    {% if indexable %}
+    <meta name="robots" content="index, follow">
+    {% else %}
+    <meta name="robots" content="noindex, follow">
+    {% endif %}
+
+</head>
+
+<!--NAV BACKEND -->
+{% if user.is_authenticated and user.is_staff %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: linear-gradient(to bottom right, #000a19, #000000);">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admins
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{% url 'app_manager:manager-admin-dash' %}">Manager</a></li>
+                            <li><a class="dropdown-item" href="#">Numbers</a></li>
+                            <li><a class="dropdown-item" href="#">Etc</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Adds
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Add Articles</a></li>
+                            <li><a class="dropdown-item" href="#">Add Questões</a></li>
+                            <li><a class="dropdown-item" href="#">Add Casos</a></li>
+                            <li><a class="dropdown-item" href="#">Add Súmulas</a></li>
+                            <li><a class="dropdown-item" href="#">Add Modelo</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_principios:principios-create' %}">Add Principio</a></li>
+                            <li><a class="dropdown-item" href="#">Add Edu-Social</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Uploads
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">STF_data</a></li>
+                            <li><a class="dropdown-item" href="#">Upload_stj_data</a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>                                    
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Group
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Xlex Edu</a></li>
+                            <li><a class="dropdown-item" href="#">Xlex Online</a></li>
+                            <li><a class="dropdown-item" href="#">Xlex Store</a></li>
+                            <li><a class="dropdown-item" href="#">Xlex...</a></li>                                    
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endif %}
+
+{% block 'navbar-top' %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: linear-gradient(to bottom right, #000a19, #000000);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/" id="highlighted-text">Xlex</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color:white"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Súmulas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Modelos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Estudo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Artigos</a></li>
+                            <li><a class="dropdown-item" href="#">Questões</a></li>
+                            <li><a class="dropdown-item" href="#">Casos Concretos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_principios:principios-list' %}">Principios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Jurisprudências
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Painel Tribunais</a></li>
+                            <li><a class="dropdown-item" href="#">Superior Trib. Justiça</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Edu-Social</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'app_home:contact-us' %}">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'app_home:sobre-nos' %}">Sobre</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock 'navbar-top' %}
+
+
+<body>
+    <!-- App Home Site -->
+    {% block 'site_home' %}
+
+    {% endblock 'site_home' %}
+
+    {% block 'contact_us' %}
+
+    {% endblock 'contact_us' %}
+
+    {% block 'sobre_nos' %}
+
+    {% endblock 'sobre_nos' %}
+    <!-- Jurisprudências Página Central -->
+    {% block 'jurisprudencias' %}
+    
+    {% endblock 'jurisprudencias' %}
+    <!-- Jurisprudências Página Central -->
+
+    <!-- App Articles -->
+    {% block 'articles_list' %}
+
+    {% endblock 'articles_list' %}
+
+    {% block 'article_single' %}
+
+    {% endblock 'article_single' %}
+
+    {% block 'categories_articles' %}
+
+    {% endblock 'categories_articles' %}
+
+    {% block 'articles_tags' %}
+
+    {% endblock 'articles_tags' %}
+
+    {% block 'create_article' %}
+
+    {% endblock 'create_article' %}
+
+    {% block 'update_article' %}
+    
+    {% endblock 'update_article' %}
+
+    {% block 'article_delete' %}
+
+    {% endblock 'article_delete' %}
+
+    <!-- App Questions -->
+    {% block 'questions_list' %}
+    
+    {% endblock 'questions_list' %}
+
+    {% block 'question_single' %}
+
+    {% endblock 'question_single' %}
+
+    {% block 'question_banca' %}
+
+    {% endblock 'question_banca' %}
+
+    {% block 'question_disciplina' %}
+
+    {% endblock 'question_disciplina' %}
+
+    {% block 'ramo_Dodireito' %}
+
+    {% endblock 'ramo_Dodireito' %}
+
+    {% block 'question_tag' %}
+
+    {% endblock 'question_tag' %}
+
+    {% block 'create_xquestion' %}
+
+    {% endblock 'create_xquestion' %}
+
+    {% block 'create_answer' %}
+
+    {% endblock 'create_answer' %}
+
+    <!-- App Casos -->
+    {% block 'casos_list' %}
+
+    {% endblock 'casos_list' %}
+
+    {% block 'casos_single' %}
+
+    {% endblock 'casos_single' %}
+
+    {% block 'casos_disciplina' %}
+
+    {% endblock 'casos_disciplina' %}
+
+    {% block 'casoRamo_direito' %}
+
+    {% endblock 'casoRamo_direito' %}
+
+    {% block 'caso_tag' %}
+
+    {% endblock 'caso_tag' %}
+
+    {% block 'caso_create' %}
+
+    {% endblock 'caso_create' %}
+
+    {% block 'caso_updade' %}
+
+    {% endblock 'caso_updade' %}
+    
+    {% block 'caso_delete' %}
+
+    {% endblock 'caso_delete' %}
+
+    <!-- App Súmulas -->
+    {% block 'sumulas_list' %}
+
+    {% endblock 'sumulas_list' %}
+
+    {% block 'sumula_single' %}
+
+    {% endblock 'sumula_single' %}
+    
+    {% block 'sumula_create' %}
+
+    {% endblock 'sumula_create' %}
+
+    {% block 'sumula_update' %}
+
+    {% endblock 'sumula_update' %}
+
+    {% block 'sumula_delete' %}
+
+    {% endblock 'sumula_delete' %}
+
+    {% block 'sumulas_tribName' %}
+
+    {% endblock 'sumulas_tribName' %}
+
+    {% block 'sumulas_siglasTrib' %}
+
+    {% endblock 'sumulas_siglasTrib' %}
+
+    <!-- App Jurisprudência STJ -->
+    {% block 'juris_stj_list' %}
+    
+    {% endblock 'juris_stj_list' %}
+
+    {% block 'juris_stj_single' %}
+
+    {% endblock 'juris_stj_single' %}
+
+    {% block 'stj_juris_upload' %}
+
+    {% endblock 'stj_juris_upload' %}
+
+    <!-- Blocos APP Search -->
+    {% block 'universal_results' %}
+
+    {% endblock 'universal_results' %}
+
+    {% block 'advanced_results' %}
+
+    {% endblock 'advanced_results' %}
+
+    {% block 'advanced_views' %}
+
+    {% endblock 'advanced_views' %}
+
+    {% block 'sumula_search' %}
+
+    {% endblock 'sumula_search' %}
+
+  <!-- App Modelos -->
+    {% block 'modelos_page' %}
+
+    {% endblock 'modelos_page' %}
+
+    {% block 'modelo_singular' %}
+
+    {% endblock 'modelo_singular' %}
+
+    {% block 'modelos_ramo' %}
+
+    {% endblock 'modelos_ramo' %}
+
+    {% block 'modelos_tipo' %}
+
+    {% endblock 'modelos_tipo' %}
+
+    {% block 'modelos_tag' %}
+
+    {% endblock 'modelos_tag' %}
+
+    {% block 'modelo_create' %}
+
+    {% endblock 'modelo_create' %}
+    
+    {% block 'modelo_update' %}
+
+    {% endblock 'modelo_update' %}
+
+    {% block 'modelo_delete' %}
+
+    {% endblock 'modelo_delete' %}
+
+
+    <!-- App Blog Social -->
+    {% block 'blogs_list' %}
+    
+    {% endblock 'blogs_list' %}
+
+    {% block 'blog_single' %}
+    
+    {% endblock 'blog_single' %}
+
+    {% block 'blog_categories' %}
+
+    {% endblock 'blog_categories' %}
+
+    {% block 'blog_tags' %}
+
+    {% endblock 'blog_tags' %}
+
+    {% block 'blog_create' %}
+    
+    {% endblock 'blog_create' %}
+
+    {% block 'blog_update' %}
+    
+    {% endblock 'blog_update' %}
+
+    {% block blog_delete %}
+    
+    {% endblock blog_delete %}
+
+    <!-- App Principios do Direito -->
+    {% block 'principios_list' %}
+    
+    {% endblock 'principios_list' %}
+
+    {% block 'principio_single' %}
+    
+    {% endblock 'principio_single' %}
+
+    {% block 'principios_ramo' %}
+    
+    {% endblock 'principios_ramo' %}
+
+    {% block 'principios_create' %}
+    
+    {% endblock 'principios_create' %}
+
+    {% block 'principios_update' %}
+
+    {% endblock 'principios_update' %}
+
+    {% block 'principios_delete' %}
+
+    {% endblock 'principios_delete' %}
+
+    <!-- App Manager -->
+    {% block 'manager_admin' %}
+
+    {% endblock 'manager_admin' %}
+
+    <!-- App Educação Social -->
+    {% block 'create_Socialarticle' %}
+
+    {% endblock 'create_Socialarticle' %}
+
+    {% block 'article_Socialdelete' %}
+
+    {% endblock 'article_Socialdelete' %}
+
+    {% block 'article_Socialsingle' %}
+
+    {% endblock 'article_Socialsingle' %}
+
+    {% block 'articles_Socialtags' %}
+
+    {% endblock 'articles_Socialtags' %}
+
+    {% block 'updateSocial_article' %}
+
+    {% endblock 'updateSocial_article' %}
+
+    {% block 'articlesSocial_list' %}
+
+    {% endblock 'articlesSocial_list' %}
+
+    {% block 'categories_SocialArticles' %}
+
+    {% endblock 'categories_SocialArticles' %}
+
+  <!-- /=/=/=/=/=/=/=/=/=/=/=/==//=/=/=/=/=-->
+
+  <!-- SIBEBAR-->
+{% if not hide_sidebar %}
+<div class="col-md-4">
+
+    <div class="position-sticky" style="top: 1rem;">
+        <div class="p-4 mb-3 rounded" id="side-hero">
+            <p>&#x1F4DC; Princípios do Direito</p>
+            <hr>
+            <!-- Sidebar -->
+            <div class="sidebar-principio-randomico">
+                <h5 class="sidebar-principio-randomico">{{ principio_randomico.principio_name }}</h5>
+                <p>{{ principio_randomico.meta_description }}</p>
+                <a class="a-link" href="{% url 'app_principios:principio-single' slug=principio_randomico.slug %}">Ler mais</a>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <span>Páginas</span>
+            <ol class="list-unstyled mb-0">
+                <li><a href="{% url 'app_home:sobre-nos' %}" class="a-link-side">Sobre nós</a></li>
+                <li><a href="{% url 'app_home:contact-us' %}" class="a-link-side">Contate-nos</a></li>
+            </ol>
+        </div>
+
+        <div class="p-4">
+            <span>Filtros</span>
+
+            {% if current_app == 'app_home' %}
+            <!-- Nada aqui por enquanto-->
+
+            {% elif current_app == 'app_articles' %}
+                <details><summary>Categorias</summary>
+                    <ol class="list-unstyled mb-0">                 
+                        {% for category in categories %}
+                        <code style="color:gray;"></code>                   
+                            <a href="{% url 'app_articles:categories-articles' category.slug %}" class="a-link-side">{{ category.name }}</a><br>
+                        {% endfor %}
+                    </ol>                    
+                </details><br>
+                <details><summary>Tags</summary>
+                    <ol class="list-unstyled mb-0">                 
+                        {% for tag in tagsx %}
+                        <code style="color:gray;"></code>                   
+                            <a href="{% url 'app_articles:tags-articles' tag.slug %}" class="a-link-side">{{ tag.name }}</a><br>
+                        {% endfor %}
+                    </ol>                    
+                </details><br>
+            {% endif %}
+
+            {% if current_app == 'app_questions' %}
+                <details>
+                    <summary>Bancas</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for banca in bancas %}
+                        <a href="{% url 'app_questions:question-banca' banca.slug %}" class="a-link-side">{{ banca.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+                <details>
+                    <summary>Disciplinas</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for disciplina in disciplinas %}
+                        <a href="{% url 'app_questions:question-disciplina' disciplina.slug %}" class="a-link-side">{{ disciplina.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+                <details>
+                    <summary>Ramo do Dto</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for ramo_direito in ramos %}
+                        <a href="{% url 'app_questions:question-ramo' ramo_direito.slug %}" class="a-link-side">{{ ramo_direito.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+                <details>
+                    <summary>Tags</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for tags in tagsx %}
+                        <a href="{% url 'app_questions:question-tag' tags.slug %}" class="a-link-side">{{ tags.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+            {% endif %}
+    
+            {% if current_app == 'app_casos' %}
+                <details>
+                    <summary>Disciplinas</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for disciplina in disciplinas %}
+                        <a href="{% url 'app_casos:casos-disciplinas' disciplina.slug %}" class="a-link-side">{{ disciplina.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+                <details>
+                    <summary>Ramo do Dto</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for ramo_direito in ramos %}
+                        <a href="{% url 'app_casos:casos-ramo-direito' ramo_direito.slug %}" class="a-link-side">{{ ramo_direito.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+                <details>
+                    <summary>Tags</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for tags in tagsx %}
+                        <a href="{% url 'app_casos:casos-tags' tags.slug %}" class="a-link-side">{{ tags.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+            {% endif %}
+
+            {% if current_app == 'app_modelos' %}
+                <details>
+                    <summary>Ramo do Dto</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for ramo_direito in ramos %}
+                        <a href="{% url 'app_modelos:modelos-ramo-direito' ramo_direito.slug %}" class="a-link-side">{{ ramo_direito.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+                <details>
+                    <summary>Tipos</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for tipo in tipos %}
+                        <!-- Corrigido para usar 'tipo.name' -->
+                        <a href="{% url 'app_modelos:modelos-tipo-doc' tipo.slug %}" class="a-link-side">{{ tipo.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+                <details>
+                    <summary>Tags</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for tag in tagsx %}
+                        <a class="a-link-side" href="{% url 'app_modelos:modelos-tag-doc' tag.slug %}">{{ tag.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+            {% endif %}
+
+            {% if current_app == 'app_edu_social' %}
+                <details>
+                <summary>Blog-Categorias</summary>
+                <ol class="list-unstyled mb-0">  
+                    {% for category in categories %}
+                    <!-- Corrigido para usar 'tipo.name' -->
+                    <a href="{% url 'app_edu_social:categories-social-articles' category.slug %}" class="a-link-side">{{ category.name }}</a><br>
+                    {% endfor %}
+                </ol>
+                </details><br>
+                <details>
+                    <summary>Blog-Tags</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for tag in tagsx %}
+                        <a class="a-link-side" href="{% url 'app_edu_social:tags-social-articles' tag.slug %}">{{ tag.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+            {% endif %}
+
+            {% if current_app == 'app_principios' %}
+                <details>
+                    <summary>Princípios do Direito</summary>
+                    <ol class="list-unstyled mb-0">  
+                        {% for ramo in ramos %}
+                        <!-- Corrigido para usar 'tipo.name' -->
+                        <a href="{% url 'app_principios:principios-ramo-direito' ramo.slug %}" class="a-link-side">{{ ramo.name }}</a><br>
+                        {% endfor %}
+                    </ol>
+                </details><br>
+            {% endif %}
+
+
+        </div>
+        <div class="p-4">
+            <span>Redes Sociais Xlex</span>
+            <ol class="list-unstyled">
+            <li><a href="#" class="a-link-side">Instagran</a></li>
+            <li><a href="#" class="a-link-side">Youtube</a></li>
+            <li><a href="#" class="a-link-side">Facebook</a></li>
+            </ol>
+        </div>
+        <div class="p-4">
+            <span>Conta</span>
+            <ol class="list-unstyled">
+            <li><a href="#" class="a-link-side">Perfil</a></li>
+            <li><a href="#" class="a-link-side">Login</a></li>
+            <li><a href="#" class="a-link-side">Logout</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!--Fechamento de divs dependentes da base html -->
+</div>
+</div>
+</div>
+<!--Fechamento de divs dependentes da base html -->  
+{% endif %}
+<br><br><br>
+
+<!--Footer--> 
+<footer>
+  <div class="footer-container">
+        <!-- Título do Footer -->
+        <div class="logo-section">
+            <a href="/">
+                <img src="{% static 'images/logo_footer.png' %}" alt="Logo da Xlex Educação e Pesquisa Jurídica" width="76px">
+            </a>        
+        </div>
+        <h2 class="highlighted-text">XLEX, LOVE LEX!</h2>
+        {% if views_count %}
+        <p>Views: {{ views_count }}</p>
+        {% endif %}
+        <h6 style="color: white;">
+            Agradecemos sua visita e o interesse pelo nosso conteúdo. Convidamos você a explorar outras 
+            seções do site. Faça um tour!
+        </h6>
+      <!-- Informações da Marca -->
+      <div class="footer-brand-info">
+          <p class="footer-brand-info">&copy; 2023 Xlex Educação Pesquisa Jurídica e Desenvolvimento Social. Todos os direitos reservados.</p>
+          <small>By: Marcos Rodrigues</small>
+      </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<script src="{% static 'js/copy_ementa.js' %}"></script>
+<script src="{% static 'js/copy_enunciado.js' %}"></script>
+<script src="{% static 'js/sidebar_show.js' %}"></script>
+<script src="{% static 'js/revelar_answer_question.js' %}"></script>
+<script src="{% static 'js/create_answer.js' %}"></script>
+<script src="{% static 'js/quill_editor.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1NX8363QKD"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-1NX8363QKD'); </script>
+</body>
+</html>
