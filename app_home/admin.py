@@ -1,9 +1,8 @@
 from django.contrib import admin
 from .models import HomeSite, TagSiteModel, ContactMessagesModel
 
-
 class SiteAdmin(admin.ModelAdmin):
-    list_display = ('title', 'indexable', '__str__')  # Adiciona indexable e mantém __str__
+    list_display = ('title', 'indexable', '__str__')
     list_editable = ('indexable',)  # Permite que indexable seja editável diretamente na lista
     list_filter = ('indexable',)  # Adiciona indexable aos filtros
     search_fields = ('title',)
@@ -25,3 +24,4 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(HomeSite, SiteAdmin)
 admin.site.register(TagSiteModel, TagSiteAdmin)
+

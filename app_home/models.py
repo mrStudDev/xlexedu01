@@ -2,8 +2,8 @@ from django.db import models
 from django.utils.text import slugify
 
 class TagSiteModel(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
+    name = models.CharField(max_length=250)
+    description = models.CharField(max_length=160)
     slug = models.SlugField()
 
     def __str__(self):

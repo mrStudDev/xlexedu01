@@ -21,7 +21,6 @@ from django.conf import settings
 from django.contrib.auth import views
 from django.views.generic.base import RedirectView
 from django.contrib.staticfiles.storage import staticfiles_storage
-from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -101,7 +101,5 @@ class JurisprudenciasListView(TemplateView):
             page.last_accessed = timezone.now()
             page.save()
 
-        # Agora, construa o contexto manualmente aqui, pois você está em TemplateView
         context = {'hide_sidebar': True}
-        # Adicione mais contexto conforme necessário
         return self.render_to_response(context)
