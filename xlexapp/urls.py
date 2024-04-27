@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('app_home.urls')),
     path('manager/', include('app_manager.urls')),
     path('principios/', include('app_principios.urls')),
+    path('articles/', include('app_articles.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'app_home',
     'app_manager',
     'app_principios',
+    'app_articles',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +81,8 @@ WSGI_APPLICATION = 'xlexapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
 """
+
 # Database localhost
 DATABASES = {
     'default': {

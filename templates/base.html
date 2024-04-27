@@ -58,7 +58,7 @@ License: MIT License
                         Adds
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Add Articles</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_articles:article-create-post' %}">Add Articles</a></li>
                             <li><a class="dropdown-item" href="#">Add Questões</a></li>
                             <li><a class="dropdown-item" href="#">Add Casos</a></li>
                             <li><a class="dropdown-item" href="#">Add Súmulas</a></li>
@@ -119,7 +119,7 @@ License: MIT License
                         Estudo
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Artigos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_articles:articles-list' %}">Artigos</a></li>
                             <li><a class="dropdown-item" href="#">Questões</a></li>
                             <li><a class="dropdown-item" href="#">Casos Concretos</a></li>
                             <li><a class="dropdown-item" href="{% url 'app_principios:principios-list' %}">Principios</a></li>
