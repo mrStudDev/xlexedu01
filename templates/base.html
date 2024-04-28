@@ -649,28 +649,33 @@ License: MIT License
 
 <!--Footer--> 
 <footer>
-  <div class="footer-container">
-        <!-- Título do Footer -->
+    <div class="footer-container">
+        <!-- Logo Section -->
         <div class="logo-section">
             <a href="/">
                 <img src="{% static 'images/logo_footer.png' %}" alt="Logo da Xlex Educação e Pesquisa Jurídica" width="76px">
-            </a>        
+            </a>
         </div>
+  
+        <!-- Highlighted Text and Views Count -->
         <h2 class="highlighted-text">XLEX, LOVE LEX!</h2>
         {% if views_count %}
         <p>Views: {{ views_count }}</p>
         {% endif %}
-        <h6 style="color: white;">
-            Agradecemos sua visita e o interesse pelo nosso conteúdo. Convidamos você a explorar outras 
-            seções do site. Faça um tour!
-        </h6>
-      <!-- Informações da Marca -->
-      <div class="footer-brand-info">
-          <p class="footer-brand-info">&copy; 2023 Xlex Educação Pesquisa Jurídica e Desenvolvimento Social. Todos os direitos reservados.</p>
-          <small>By: Marcos Rodrigues</small>
-      </div>
+    
+        <!-- Footer Description -->
+        <div class="description-footer">
+            <h6>Agradecemos sua visita e o interesse pelo nosso conteúdo. Convidamos você a explorar outras seções do site. Faça um tour!</h6>
+        </div>
+        
+        <!-- Brand Information -->
+        <div class="footer-brand-info">
+            <p>&copy; 2023 Xlex Educação Pesquisa Jurídica e Desenvolvimento Social. Todos os direitos reservados.</p>
+            <small style="color:gray">By: Marcos Rodrigues</small>
+        </div>
     </div>
 </footer>
+  
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
