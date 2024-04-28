@@ -90,33 +90,30 @@ class QuestionSingularView(DetailView):
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
 
-def get_context_data(self, **kwargs) -> dict[str, Any]:
-    context = super().get_context_data(**kwargs)
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
 
-    # Carregar dados relacionados de outros modelos
-    context['bancas'] = BancaQuestionModel.objects.all()
-    context['disciplinas'] = DisciplinaQuestionModel.objects.all()
-    context['ramos'] = RamoDireitoQuestionModel.objects.all()
-    context['tagsx'] = TagQuestionModel.objects.all()
+        # Carregar dados relacionados de outros modelos
+        context['bancas'] = BancaQuestionModel.objects.all()
+        context['disciplinas'] = DisciplinaQuestionModel.objects.all()
+        context['ramos'] = RamoDireitoQuestionModel.objects.all()
+        context['tagsx'] = TagQuestionModel.objects.all()
+        context['current_app'] = 'app_questions'
 
-    # Pega a questão atual e configurações relacionadas
-    question = self.get_object()
-    context['tags'] = question.tags.all()
-    context['indexable'] = question.is_indexable()
+        # Pega a questão atual e configurações relacionadas
+        question = self.get_object()
+        context['tags'] = question.tags.all()
+        context['indexable'] = question.is_indexable()
 
-    # Configurar a URL canônica com os parâmetros necessários
-    context['canonical_url'] = self.request.build_absolute_uri(
-        reverse('app_questions:question-single', kwargs={
-            'id': question.id,
-            'slug': question.slug
-        })
-    )
+        # Configurar a URL canônica com os parâmetros necessários
+        context['canonical_url'] = self.request.build_absolute_uri(
+            reverse('app_questions:question-single', kwargs={
+                'id': question.id,
+                'slug': question.slug
+            })
+        )
 
-    context['current_app'] = 'app_questions'
-
-    return context
-
-
+        return context
 
 
 class BancaQuestionView(ListView):

@@ -136,14 +136,17 @@ class TagArticlesView(ListView):
         self.tag = get_object_or_404(TagArticlesModel, slug=self.kwargs['tagArticle_slug'])
         return ArticlesModel.objects.filter(tags=self.tag)
 
+
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context.update({
             'tag': self.tag,
             'categories': CategoryArticlesModel.objects.all(),
             'tagsx': TagArticlesModel.objects.all(),
+            'tags': TagArticlesModel.objects.all(),
             'current_app': 'app_articles',
         })
+        print(context)
         return context
 
     def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
