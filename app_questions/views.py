@@ -258,7 +258,7 @@ class StaffRequiredMixin(object):
 # Create Question
 @method_decorator(csrf_exempt, name='dispatch')
 class CreateXlexQuestionView(StaffRequiredMixin, View):
-
+    
     def get(self, request, *args, **kwargs):
         questao_x_id = kwargs.get('questao_x_id', None)
         form = CreateXlexQuestionForm()
@@ -278,6 +278,8 @@ class CreateXlexQuestionView(StaffRequiredMixin, View):
 # Create Answer
 @method_decorator(csrf_exempt, name='dispatch')
 class CreateAnswerView(StaffRequiredMixin, View):
+
+    
     def get(self, request, questao_x_id):
         question = get_object_or_404(XlexQuestionModel, id=questao_x_id)
         form = CreateXlexAnswerForm(initial={'question': questao_x_id})

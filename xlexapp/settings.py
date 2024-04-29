@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'app_principios',
     'app_articles',
     'app_questions',
+    'app_sumulas',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,7 @@ WSGI_APPLICATION = 'xlexapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 """
 # Database localhost
 DATABASES = {
@@ -109,7 +111,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 
 

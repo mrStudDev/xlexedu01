@@ -204,6 +204,27 @@ p {
     color:#808080;
     text-align: justify;
 }
+.text-destaque {
+    font-family: 'Merriweather', serif; /* Mantendo a fonte para consistência */
+    font-size: 16px; /* Tamanho de fonte apropriado para leitura */
+    color: #333; /* Cor de texto para leitura confortável */
+    line-height: 1.6; /* Espaçamento de linha para melhor fluidez do texto */
+    margin: 20px; /* Espaçamento ao redor do texto */
+    background-color: #f8f8f8; /* Fundo sutil para destacar o texto */
+    padding: 20px; /* Padding interno */
+    border-radius: 5px; /* Bordas arredondadas para estética moderna */
+}
+
+.text-destaque a {
+    color: #0056b3; /* Cor do link para destaque */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Torna os links em negrito para maior ênfase */
+}
+
+.text-destaque a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse para interatividade */
+    color: #2e2c2b; /* Muda a cor ao passar o mouse para uma interação visível */
+}
 
 /*Containes Juris e Súmulas -singular */
 .content-container {

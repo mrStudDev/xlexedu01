@@ -61,7 +61,7 @@ License: MIT License
                             <li><a class="dropdown-item" href="{% url 'app_articles:article-create-post' %}">Add Articles</a></li>
                             <li><a class="dropdown-item" href="{% url 'app_questions:question-create' %}">Add Questões</a></li>
                             <li><a class="dropdown-item" href="#">Add Casos</a></li>
-                            <li><a class="dropdown-item" href="#">Add Súmulas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_sumulas:sumula-create-post' %}">Add Súmulas</a></li>
                             <li><a class="dropdown-item" href="#">Add Modelo</a></li>
                             <li><a class="dropdown-item" href="{% url 'app_principios:principios-create' %}">Add Principio</a></li>
                             <li><a class="dropdown-item" href="#">Add Edu-Social</a></li>
@@ -109,7 +109,7 @@ License: MIT License
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Súmulas</a>
+                        <a class="nav-link" href="{% url 'app_sumulas:sumulas-list' %}">Súmulas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Modelos</a>
@@ -689,9 +689,7 @@ License: MIT License
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <script src="{% static 'js/copy_ementa.js' %}"></script>
-<script src="{% static 'js/copy_enunciado.js' %}"></script>
 <script src="{% static 'js/sidebar_show.js' %}"></script>
-<script src="{% static 'js/revelar_answer_question.js' %}"></script>
 <script src="{% static 'js/create_answer.js' %}"></script>
 <script src="{% static 'js/quill_editor.js' %}"></script>
 
