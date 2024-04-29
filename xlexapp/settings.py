@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'app_articles',
     'app_questions',
     'app_sumulas',
+    'app_juris_stj',
 ]
 
 MIDDLEWARE = [
@@ -83,8 +84,8 @@ WSGI_APPLICATION = 'xlexapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
 """
+
 # Database localhost
 DATABASES = {
     'default': {

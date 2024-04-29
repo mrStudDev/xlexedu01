@@ -262,7 +262,7 @@ class CreateXlexQuestionView(StaffRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         questao_x_id = kwargs.get('questao_x_id', None)
         form = CreateXlexQuestionForm()
-        return render(request, 'templates_questions/question_create.html', {'form': form, 'questao_x_id': questao_x_id})
+        return render(request, 'templates_questions/question_create.html', {'form': form, 'questao_x_id': questao_x_id, 'hide_sidebar':True})
 
     def post(self, request, *args, **kwargs):
         form = CreateXlexQuestionForm(request.POST)
@@ -288,7 +288,7 @@ class CreateAnswerView(StaffRequiredMixin, View):
 
         # Recupere as alternativas associadas a esta questão
         recent_answers = AlternativasModel.objects.filter(question=question)
-        return render(request, 'templates_questions/question_answer_create.html', {'form': form, 'questao_x_id': questao_x_id, 'question_ask': question_ask, 'recent_answers': recent_answers, 'errors': form.errors})
+        return render(request, 'templates_questions/question_answer_create.html', {'form': form, 'questao_x_id': questao_x_id, 'question_ask': question_ask, 'recent_answers': recent_answers, 'errors': form.errors, 'hide_sidebar':True})
 
     def post(self, request, questao_x_id):
         form = CreateXlexAnswerForm(request.POST)

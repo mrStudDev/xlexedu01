@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %} {{jurisprucencia_STJ.title}} {% endblock 'title' %}
+{% block description %}{{jurisprucencia_STJ.meta_description}}{% endblock description %}
+{% block keywords %}{{jurisprucencia_STJ.keyword}}{% endblock keywords %}
+
+{% block 'juris_stj_single' %}
+
+<div class="content-container">
+    <img src="{% static 'images/destaque_juris_stj.jpg' %}" alt="Jurisprudências do STJ" class="article-image">
+    <!-- Bloco 1: Informações gerais -->
+    <div class="info-general">
+        <h1 class="upper-destaque" style="text-transform: uppercase;">Dados gerais da Jurisprudência:</h1>
+        <hr>
+        <p>Descrição da Classe: {{object.descricaoClasse }}</p>            
+        <p>Tipo de Decisão: <strong>{{object.tipoDeDecisao }}</strong></p>
+        <p>Número Processo: <strong>{{object.numeroProcesso }}</strong></p>
+        <p>Número registro: {{object.numeroRegistro }}</p>
+        <p>Sigla de Classe: {{object.siglaClasse }}</p>
+        <p>Órgao Julgador: STJ - {{object.nomeOrgaoJulgador }}</p>
+        <p>Data Decisão: {{object.dataDecisao }}</p>        
+        <p>Data Publicação: {{object.dataPublicacao }}</p>
+        <p>Ministro Relator: {{object.ministroRelator }}</p>
+    </div>
+    <div>
+        <i class="fas fa-balance-scale"></i>
+    </div>
+
+    <!-- Bloco 2: Ementa -->
+    <div class="info-ementa">
+        <h3>EMENTA:</h3>
+        <p id="copiarEmenta">{{object.ementa }} <br><br> <small>{{object.tipoDeDecisao }} - Relator: {{object.ministroRelator }} - {{object.nomeOrgaoJulgador }} nº: {{object.numeroProcesso }} - {{object.dataPublicacao }}</small> </p>
+        <button id="button-copiar" onclick="copiarEmenta()" class="btn bg-dark text-light btn-sm">Copiar Ementa &#10004;</button>
+        <br><br>
+        <div class="message">
+            <div>
+                <div id="message" style="color:rgb(42, 173, 22);font-size:17; text-decoration: solid;"></div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <!-- Bloco 3: Informações finais -->
+    <div class="info-final">
+        <p><strong>Decisão: </strong><br>{{object.decisao }}</p>
+        <p class="ementa"><strong>Jurisp. Citada: </strong><br>{{object.jurisprudenciaCitada }}</p>
+        <p class="ementa"><strong>Notas: </strong><br>{{object.notas }}</p>
+        <p class="ementa"><strong>Info. Complementares: </strong><br>{{object.informacoesComplementares }}</p>
+        <p class="ementa"><strong>Termos auxiliares: </strong><br>{{object.termosAuxiliares }}</p>
+        <p class="ementa"><strong>Teses Jurídica: </strong><br>{{object.teseJuridica }}</p>
+        <p class="ementa"><strong>Tema: </strong><br>{{object.tema }}</p>
+        <p class="ementa"><strong>Referências Legislativas: </strong><br>{{object.referenciasLegislativas }}</p>
+        <p class="ementa"><strong>Acórdãos Similares: </strong><br>{{object.acordaosSimilares }}</p>
+    </div>
+    <br>
+    <center>
+        <a class="btn bg-dark text-light btn-sm" href="#">Formulário de busca</a>        
+    </center>
+    <br>
+    <hr>
+    <span>
+        <h2 class="upper-destaque" style="text-transform: uppercase;">{{object.title}}</h2>
+        <small>Fonte: Dados Abertos - <strong>Superior Tribunal de Justiça - STJ</strong></small><br>       
+        <small>Chave-x: <strong>{{object.title}}</strong></small><br>
+        <small>Ministro Relator: <strong>{{object.ministroRelator }}</strong></small><br>
+        <small>Views: {{object.views}}</small><br>
+        <span class="coracao">&#9829; &#9829; &#9829; &#9829; &#9829;</span>
+        <small style="color: rgb(154, 152, 152);"><i>Xlex Love Lex</i></small>
+    </span>
+
+</div>
+<script src="{% static 'js/copy_ementa.js' %}"></script>
+{% endblock 'juris_stj_single' %}

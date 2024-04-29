@@ -136,6 +136,11 @@ class CreateSumulaView(CreateView):
     template_name = 'templates_sumulas/sumula_create_post.html'
     form_class = CreateSumulaForm
     success_url = reverse_lazy('app_sumulas:sumula-single')
+
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["hide_sidebar"] = True
+        return context
     
     def form_valid(self, form):
         form.instance.slug = slugify(form.instance.title)

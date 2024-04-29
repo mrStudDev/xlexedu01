@@ -73,7 +73,7 @@ License: MIT License
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">STF_data</a></li>
-                            <li><a class="dropdown-item" href="#">Upload_stj_data</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_juris_stj:juris-stj-upload' %}">Upload_stj_data</a></li>
                             <li><a class="dropdown-item" href="#"></a></li>
                             <li><a class="dropdown-item" href="#"></a></li>                                    
                         </ul>
@@ -130,8 +130,8 @@ License: MIT License
                         Jurisprudências
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Painel Tribunais</a></li>
-                            <li><a class="dropdown-item" href="#">Superior Trib. Justiça</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_home:jurisprudencias-page-list' %}">Painel Tribunais</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_juris_stj:juris-stj-list' %}">Superior Trib. Justiça</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -688,7 +688,6 @@ License: MIT License
 
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
-<script src="{% static 'js/copy_ementa.js' %}"></script>
 <script src="{% static 'js/sidebar_show.js' %}"></script>
 <script src="{% static 'js/create_answer.js' %}"></script>
 <script src="{% static 'js/quill_editor.js' %}"></script>
