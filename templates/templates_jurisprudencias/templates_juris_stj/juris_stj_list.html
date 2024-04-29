@@ -9,7 +9,7 @@
     <center>
         <small>Você pode fazer uma perguisa <strong>avançada</strong>, clicando no botão abaixo!</small>
         <br><br>
-        <a class="btn bg-dark btn-sm text-white" href="#">Ir para busca avancada</a>
+        <a class="btn bg-dark btn-sm text-white" href="{% url 'app_searchs:advanced-searchs-view' %}">Ir para busca avancada</a>
                       
     </center><br>
     <h1 id="title-post-h1" style="text-transform: uppercase;">Jurisprudências do Superior Tribunal de Justiça - STJ</h1>
@@ -41,7 +41,7 @@
                 <!--a data_formatada para exibição, no singular, a data APRESENTADA É A dataPublicacao-->  
                 <br><p class="ementa"><strong>EMENTA:</strong> <br> {{juris_stj.ementa | slice:"700"}}...</p>
                 <p class="p-link">
-                    <a class="card-a-title" href="{% url 'app_juris_stj:juris-stj-single' id=juris_stj.pk slug=juris_stj.slug %}">Ler jurisprudência...</a> 
+                    <a class="a-link" href="{% url 'app_juris_stj:juris-stj-single' id=juris_stj.pk slug=juris_stj.slug %}">Ler jurisprudência...</a> 
                 </p>
             </div>
         </div>

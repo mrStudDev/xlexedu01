@@ -70,6 +70,21 @@ p {
     color:#062dec;
     text-decoration: none;
 }
+.a-link-outline {
+    color: #007BFF; /* Cor do texto e da borda */
+    padding: 5px 10px; /* Espaçamento interno */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border: 1px solid #007BFF; /* Borda com a mesma cor do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: color 0.2s, border-color 0.2s, background-color 0.2s; /* Transição suave para hover */
+}
+.a-link-outline:hover, .a-link-outline:focus {
+    color: #0056b3; /* Cor do texto no hover */
+    background-color: #dfefff; /* Cor de fundo no hover */
+    border-color: #0056b3; /* Cor da borda no hover */
+    text-decoration: none; /* Mantém o sublinhado removido no hover */
+}
+
 .escolha {
     font-size: 13px;
 }
@@ -155,6 +170,14 @@ p {
     width: 100%; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
+.card-link {
+    text-decoration: none; 
+    color: inherit;
+}
+.card-link:hover {
+    text-decoration: none; 
+    color: #007BFF;
+}
 
 #bolinha-educacao::before {
     content: ""; /* Isso é necessário para que o pseudo-elemento seja exibido */
@@ -194,6 +217,7 @@ p {
 /* End Cards */
 
 /* SÙMULAS E JURIS */
+
 .upper-destaque {
     font-size: 14px;
 }
