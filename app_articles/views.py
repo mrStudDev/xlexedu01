@@ -45,6 +45,7 @@ class ArticlesListView(ListView):
         context["publicacoes_count"] = ArticlesModel.objects.all().count()
         context["hide_sidebar"] = True
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_articles:articles-list'))
+        context['indexable'] = True  # ou algum critério dinâmico para decidir isso
         return context
 
     def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
