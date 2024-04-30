@@ -107,6 +107,7 @@ class CategoryListView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True  # ou algum critério dinâmico para decidir isso
         context.update({
             'category': self.category,
             'categories': CategoryArticlesModel.objects.all(),
@@ -140,6 +141,7 @@ class TagArticlesView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True  # ou algum critério dinâmico para decidir isso
         context.update({
             'tag': self.tag,
             'categories': CategoryArticlesModel.objects.all(),
