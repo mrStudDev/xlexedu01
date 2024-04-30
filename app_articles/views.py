@@ -146,7 +146,6 @@ class TagArticlesView(ListView):
             'tags': TagArticlesModel.objects.all(),
             'current_app': 'app_articles',
         })
-        print(context)
         return context
 
     def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:

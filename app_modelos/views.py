@@ -91,7 +91,7 @@ class DocumentSingleView(DetailView):
         context['ramo'] = RamoDireitoDocModel.objects.all()
         context['ramos'] = RamoDireitoDocModel.objects.all()
         context['tipo'] = TagDocumentsModel.objects.all()
-        context['tags'] = TagDocumentsModel.objects.all()
+        context['tag'] = TagDocumentsModel.objects.all()
         context['tagsx'] = TagDocumentsModel.objects.all()
         context['tipos'] = TipoDocumentModel.objects.all()
         context['current_app'] = 'app_modelos'
@@ -180,13 +180,13 @@ class TagDocumentView(ListView):
     context_object_name = 'modelos'
     
     def get_queryset(self):
-        self.tags = get_object_or_404(TagDocumentsModel, slug=self.kwargs['tag_slug'])
-        return DocumentsModel.objects.filter(tags=self.tags)
+        self.tag = get_object_or_404(TagDocumentsModel, slug=self.kwargs['tag_slug'])
+        return DocumentsModel.objects.filter(tags=self.tag)
         
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context.update({
-            'tags': self.tags,
+            'tag': self.tag,
             'tagsx': TagDocumentsModel.objects.all(),
             'tipos': TipoDocumentModel.objects.all(),
             'ramos': RamoDireitoDocModel.objects.all(),

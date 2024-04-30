@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block 'title' %}{{ category.name }}{% endblock 'title' %}
+{% block description %}{{category.meta_descripton}}{% endblock description %}
+{% block keywords %}Categorias Democracía, Constituição Federal{% endblock keywords %}
+
+{% block 'categories_SocialArticles' %}
+<br>
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-8" id="main-content"> 
+            <div class="col-md-12 px-0">
+                <h1 id="title-post-h1">Artigos | Categoria: {{ category.name }}</h1>
+                <span>
+                    Nesta página, estão listadas os últimos artigos publicados, conforme a categoria selecionada.
+                </span><br><br>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
+
+                {% for social in social %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body d-flex flex-column" id="bolinha-educacao" style="height: 100%;">
+                            <div style="flex-grow: 1;">
+                                <code class="card-code">{{social.code}}</code>
+                                <br>
+                                <p class="card-date">Pub: {{ social.date_created|date:"d M Y" }}
+                                </p>
+                                <hr>  
+                                <span class="card-title">
+                                    <a href="{% url 'app_edu_social:article-social-single' social.slug %}">
+                                        {{ social.title | slice:":47"  }}
+                                    </a>
+                                </span><br>
+                                <small class="card-category">Categoria:
+                                    <a href="{% url 'app_edu_social:categories-social-articles' social.category.slug %}" class="card-a-category">
+                                        {{ social.category.name }}
+                                    </a> 
+                                </small>
+                                <br> <br> 
+                                <p class="card-description">
+                                    {{ social.meta_description | slice:":200" }}
+                                </p>
+                            </div>
+                            {% if social.slug %}
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{% url 'app_edu_social:article-social-single' social.slug %}" class="a-link">Leia mais</a>
+                                    </div>
+                                    <small class="text-muted">Xlex</small>
+                                </div>
+                            </div>                 
+                            {% endif %}
+
+                            {% if article.slug %}
+                                {% if user.is_authenticated and user.is_staff %}
+                                    <div>
+                                        <span>
+                                            <a href="{% url 'app_edu_social:article-social-update' social.slug %}">Update</a>
+                                            | | <a href="{% url 'app_edu_social:article-social-delete' social.slug %}" style="color:red">delete</a>
+                                          </span>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+{% endblock 'categories_SocialArticles' %}

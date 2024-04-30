@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block 'title' %} {{tags.name}} {% endblock 'title' %}
-{% block description %}{{tags.meta_description}}{% endblock description %}
+{% block 'title' %} {{tag.name}} {% endblock 'title' %}
+{% block description %}{{tag.meta_description}}{% endblock description %}
 {% block keywords %}Xlex, Modelos de Peças por Tags{% endblock keywords %}
 
 {% block 'modelos_tag' %}
@@ -12,7 +12,7 @@
         <div class="col-md-8"> 
 
             <div class="col-md-12 px-0">
-                <h1>Modelos | Tag: {{ tags.name }}</h1>
+                <h1>Modelos | Tag: {{ tag.name }}</h1>
                 <p>
                     Nesta página, estão listados os modelos conforme a <strong>Tag</strong> selecionado.
                 </p>

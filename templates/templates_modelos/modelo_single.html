@@ -43,9 +43,10 @@
                     <br>
 
                     <small><strong>Tags:</strong></small>
-                    {% for tag in tags %}
-                        <code style="color:gray">{{tag.name}}</code>
+                    {% for tag in object.tags.all %}
+                        <code style="color:gray">{{ tag.name }}</code>
                     {% endfor %}
+                    
 
                     <br>
                     <small><strong>Modelo: </strong>{{object.title}}</small> <br>

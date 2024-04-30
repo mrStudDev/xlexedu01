@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %} {{ object.title }} {% endblock 'title' %}
+{% block description %}{{object.meta_description}}{% endblock description %}
+{% block keywords %}{{object.keyword}}{% endblock keywords %}
+
+{% block 'article_Socialsingle' %}
+<br>
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-8">
+                <br>
+                <h1 id="title-post-h1" style="text-transform: uppercase;">{{ object.title}}</h1>          
+                <small>Categoria</small>  | <span class="badge bg-dark">{{object.category}}</span>
+                <br>
+                <small>Pub: {{object.date_created}}</small>                
+                <small>Artigo: {{ object.title}}</small>
+                <hr>
+                <img src="{% static 'images/destaque_edu_social.jpg' %}" alt="Educação Social - Artigo" class="article-image">
+
+                {% if user.is_authenticated and user.is_staff %}
+                    <span>
+                        <a href="{% url 'app_edu_social:article-social-update' slug=object.slug %}" style="color:blue">Updade</a>
+                        |  | <a href="{% url 'app_edu_social:article-social-delete' slug=object.slug %}" style="color:red">Delete</a>
+                    </span>
+                {% endif %}
+                <br>
+                <div class="article-summary">
+                    <h5>{{object.title}}</h5>
+                    <i>{{object.summary}}</i>
+                </div>
+                <p>{{ object.content_social | safe }}</p>
+                <br>
+
+                <div class="news-footer">
+                    <span class="coracao">&#9829; &#9829; &#9829; &#9829; &#9829;</span>                           
+                    <small style="color: rgb(154, 152, 152);">{{ object.author.first_name }} {{ object.author.last_name }}</small>
+                    <br>
+                    <span style="color: rgb(79, 79, 79);">Obrigado pela leitura!</span>
+                    <br><br>
+                    <small><strong>Tags:</strong></small>
+                    {% for tag in tags %}
+                        <code style="color:gray"> |{{tag.name}}</code>
+                    {% endfor %}
+
+                    <br>
+                    <small><strong>Artigo: </strong>{{object.title}}</small><br>
+                    <small><strong>Categoria: </strong>{{object.category}}</small><br>
+                    <small><strong>Pub: </strong>{{object.date_created}}</small><br>
+                    <small><strong>Views: </strong>{{object.views}}</small>
+                </div>
+                <hr>
+                <h5>⚖️ Leia também</h5>
+                <div class="links-externos">
+                    <a href="https://xlexedu.com/articles/post/constitucionalismo-um-fenomeno-social/" target="_blank" rel="noopener noreferrer">Constitucionalismo Um Fenômeno Social</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Constitucionalismo Social</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Resolução Ambiental CONAMA</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">História do Direito Ambiental</a>
+                </div>
+    
+                <h5>🔗 Links ùteis</h5>            
+                <div class="links-externos">
+    
+                    <a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm" target="_blank" rel="noopener noreferrer">Código Civil - Lei 10.406/2002</a>
+                    <a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm" target="_blank" rel="noopener noreferrer">Código Penal - DL 2.848/1940</a>
+                    <a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm" target="_blank" rel="noopener noreferrer">Constituição Federal - CF/1988</a>
+                    <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm" target="_blank" rel="noopener noreferrer">Código de Processo Civil - Lei 13.105/2015</a>
+                    <a href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del3689.htm" target="_blank" rel="noopener noreferrer">Código de Processo Penal - DL 3.689/1941</a>
+                </div>
+            </div>
+
+{% endblock 'article_Socialsingle' %}
