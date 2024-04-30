@@ -147,6 +147,7 @@ hr {
 
 .card-title, .card-title a, .card-title a:hover {
     color: #090909;
+    font-size: 20px;
     text-decoration: none; /* Remove o sublinhado dos títulos, mesmo no hover */
 }
 
@@ -191,13 +192,11 @@ hr {
     padding: 54px; /* Espaçamento interno */
 }
 
-
-
 /* FOOTER */
 /* Footer items*/
 .footer-container {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vh;  /* Usando min-height em vez de height para flexibilidade */
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centraliza verticalmente todo o conteúdo */
@@ -207,35 +206,61 @@ hr {
     background: linear-gradient(to bottom right, #000a19, #000000);
     font-family: 'Merriweather', serif;
     color: white;
-    padding: 20px; /* Ajuste do padding para ser mais proporcional */
+    padding: 40px 20px; /* Adicionando padding horizontal para evitar que o conteúdo toque as bordas */
 }
 
-.footer-message h6 {
-    margin-top: 15px;
-    margin-bottom: 15px; /* Espaço antes e depois do convite */
+.footer-navbar {
+    background: #000a19; /* Cor de fundo do footer */
     color: #ffffff;
-    font-size: 14px; /* Ajuste para melhor legibilidade */
+    padding: 20px 0;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
 }
-
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.footer-nav ul li {
+    margin: 0 15px;
+}
+.footer-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-nav ul li a:hover {
+    color: #c9f5a8; /* Cor ao passar o mouse */
+}
 .footer-brand-info {
     font-size: 14px;
-    color: #ffffff;
     text-align: center;
     padding: 10px 0; /* Adiciona padding para afastar do bottom */
 }
-
-/* Estilização adicional para links */
-a {
-    color: #a8d0e6;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.footer-brand-info p, .footer-brand-info small {
+    text-align: center;
+    color: #6c757d;
 }
-
-a:hover {
-    text-decoration: underline;
-    color: #f1f1f1;
+.highlighted-text {
+    font-size: 24px;
+    letter-spacing: 0.2em;
+    margin-top: 20px; /* Adiciona espaço acima do texto destacado */
 }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .footer-nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .footer-nav ul li {
+        margin: 10px 0;
+    }
+}
 /* End Footer items*/
 
 

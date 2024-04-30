@@ -525,17 +525,38 @@ details > summary:hover {
     text-align: center;
     padding: 10px 0; /* Adiciona padding para afastar do bottom */
 }
+.footer-navbar {
+    background: #000a19; /* Cor de fundo do footer */
+    color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.footer-nav ul li {
+    margin: 0 15px;
+}
+
+.footer-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-nav ul li a:hover {
+    color: #c9f5a8; /* Cor ao passar o mouse */
+}
 
 /* Melhorar a visibilidade e interatividade de links */
-a {
-    color: #a8d0e6;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
 
 a:hover {
     text-decoration: underline;
-    color: #f1f1f1;
 }
 
 /* End Footer items*/
