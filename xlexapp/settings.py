@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'app_sumulas',
     'app_juris_stj',
     'app_searchs',
+    'app_casos',
 ]
 
 MIDDLEWARE = [
