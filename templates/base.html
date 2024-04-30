@@ -62,7 +62,7 @@ License: MIT License
                             <li><a class="dropdown-item" href="{% url 'app_questions:question-create' %}">Add Questões</a></li>
                             <li><a class="dropdown-item" href="{% url 'app_casos:caso-create-post' %}">Add Casos</a></li>
                             <li><a class="dropdown-item" href="{% url 'app_sumulas:sumula-create-post' %}">Add Súmulas</a></li>
-                            <li><a class="dropdown-item" href="#">Add Modelo</a></li>
+                            <li><a class="dropdown-item" href="{% url 'app_modelos:modelo-create' %}">Add Modelo</a></li>
                             <li><a class="dropdown-item" href="{% url 'app_principios:principios-create' %}">Add Principio</a></li>
                             <li><a class="dropdown-item" href="#">Add Edu-Social</a></li>
                         </ul>
@@ -112,7 +112,7 @@ License: MIT License
                         <a class="nav-link" href="{% url 'app_sumulas:sumulas-list' %}">Súmulas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Modelos</a>
+                        <a class="nav-link" href="{% url 'app_modelos:modelos-list' %}">Modelos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
