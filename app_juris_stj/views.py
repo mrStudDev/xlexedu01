@@ -28,6 +28,7 @@ class STJjurisprudenciaView(ListView):
         context["publicacoes_count"] = STJjurisprudenciaModel.objects.all().count()
         context["hide_sidebar"] = True
         context['current_app'] = 'app_juris_stj'
+        context['indexable'] = True 
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_juris_stj:juris-stj-list'))
         return context
 

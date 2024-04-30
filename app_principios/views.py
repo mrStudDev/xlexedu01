@@ -46,6 +46,7 @@ class PrincipiosListView(ListView):
         context = super().get_context_data(**kwargs)
         context['publicacoes_count'] = PrincipiosModel.objects.all().count()
         context["hide_sidebar"] = True
+        context['indexable'] = True 
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_principios:principios-list'))
         return context
     
@@ -108,6 +109,7 @@ class RamoDireitoListView(ListView):
     
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'ramo': self.ramo,
             'ramos': RamoDireitoModel.objects.all(),

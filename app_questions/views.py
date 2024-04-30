@@ -52,6 +52,7 @@ class XlexQuestionView(ListView):
         context = super().get_context_data(**kwargs)
         context["publicacoes_count"] = XlexQuestionModel.objects.all().count()
         context["hide_sidebar"] = True
+        context['indexable'] = True 
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_questions:questions-list'))
         return context
 
@@ -127,6 +128,7 @@ class BancaQuestionView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'banca': self.banca,
             "bancas": BancaQuestionModel.objects.all(),
@@ -160,6 +162,7 @@ class DiciplinaQuestionView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'disciplina': self.disciplina,
             'disciplinas': DisciplinaQuestionModel.objects.all(),
@@ -193,6 +196,7 @@ class RamoDireitoQuestionView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'ramo_direito': self.ramo_direito,
             'ramo': RamoDireitoQuestionModel.objects.all(),
@@ -228,6 +232,7 @@ class TagQuestionView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'tag': self.tag,
             'tags': TagQuestionModel.objects.all(),

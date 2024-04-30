@@ -46,6 +46,7 @@ class CasoConcretoView(ListView):
         context = super().get_context_data(**kwargs)
         context["publicacoes_count"] = CasoConcretoModel.objects.all().count()
         context["hide_sidebar"] = True
+        context['indexable'] = True
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_casos:casos-list'))
         return context
     
@@ -114,7 +115,7 @@ class DisciplinaCasosView(ListView):
     
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        
+        context['indexable'] = True 
         context.update({
             'disciplina': self.disciplina,
             'disciplinas': DisciplinaCasosModel.objects.all(),
@@ -151,6 +152,7 @@ class RamoDireitocasoViews(ListView):
         
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update ({
             'ramo_direito': self.ramo_direito,
             'ramos': RamoDireitoModel.objects.all(),
@@ -187,6 +189,7 @@ class TagCasosView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'tags': self.tags,
             'tagsx': TagCasoModel.objects.all(),

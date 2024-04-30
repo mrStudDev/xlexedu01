@@ -39,6 +39,7 @@ class SumulasListView(ListView):
         context = super().get_context_data(**kwargs)
         context["publicacoes_count"] = SumulaModel.objects.all().count()
         context["hide_sidebar"] = True
+        context['indexable'] = True 
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_sumulas:sumulas-list'))
         return context
 

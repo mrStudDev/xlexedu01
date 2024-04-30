@@ -47,6 +47,7 @@ class DocumentListView(ListView):
         context = super().get_context_data(**kwargs)
         context["publicacoes_count"] = DocumentsModel.objects.all().count()
         context["hide_sidebar"] = True
+        context['indexable'] = True 
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_modelos:modelos-list'))
         return context
 
@@ -116,6 +117,7 @@ class RamoDocumentView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'ramo_direito': self.ramo_direito,
             'ramos': RamoDireitoDocModel.objects.all(),
@@ -150,6 +152,7 @@ class TipoDocumentView(ListView):
     
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'tipo_doc': self.tipo_doc,
             'tipos': TipoDocumentModel.objects.all(),
@@ -185,6 +188,7 @@ class TagDocumentView(ListView):
         
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'tag': self.tag,
             'tagsx': TagDocumentsModel.objects.all(),

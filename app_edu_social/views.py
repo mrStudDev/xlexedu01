@@ -42,6 +42,7 @@ class ArticlesSocialListView(ListView):
         context = super().get_context_data(**kwargs)
         context["publicacoes_count"] = ArticlesSocialModel.objects.all().count()
         context["hide_sidebar"] = True
+        context['indexable'] = True 
         context['canonical_url'] = self.request.build_absolute_uri(reverse('app_edu_social:articles-social-list'))
         return context
 
@@ -105,6 +106,7 @@ class CategorySocialListView(ListView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context['indexable'] = True 
         context.update({
             'category': self.category,
             'categories': CategorySocialModel.objects.all(),
@@ -136,7 +138,7 @@ class TagArticlesSocialView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Assume que você queira verificar algo sobre o primeiro artigo (se existir)
+        context['indexable'] = True 
         articles = self.get_queryset()
         if articles.exists():
             context['indexable'] = articles.first().is_indexable()
