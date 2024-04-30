@@ -37,6 +37,7 @@ urlpatterns = [
     path('social/', include('app_edu_social.urls')),
     path("robots.txt", RedirectView.as_view(url=staticfiles_storage.url("seo/robots.txt")), name="robots_file"),
     path("sitemap.xml", RedirectView.as_view(url=staticfiles_storage.url("seo/sitemap.xml")), name="sitemap_file"),
+    path("BingSiteAuth.xml", RedirectView.as_view(url=staticfiles_storage.url("seo/BingSiteAuth.xml")), name="bing_auth_file"),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
