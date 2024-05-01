@@ -19,6 +19,7 @@
               <span>
                 <a href="{% url 'app_sumulas:sumula-update-post' slug=object.slug%}">Update</a>
                 | | <a href="{% url 'app_sumulas:sumula-delete-post' slug=object.slug %}" style="color:red;">delete</a>
+                | | <a class="a-link" href="{% url 'app_sumulas:sumula-create-post' %}">Add Súmulas</a>
               </span>
             </div>
             {% endif %}
@@ -35,7 +36,7 @@
             <br><br>
             <div id="message" style="color: rgb(109, 203, 15); font-size: 17;"></div>
             <hr>
-            <h5>COMENTÀRIO</h5>
+            <h4>COMENTÀRIO</h4>
             <p>{{object.comentario | safe}}</p>
         </div>
 

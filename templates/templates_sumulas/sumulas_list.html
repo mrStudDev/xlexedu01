@@ -32,8 +32,8 @@
                             <hr>
                             <span class="card-title">
                                 <a href="{% url 'app_sumulas:sumula-single' sumula.slug %}">{{ sumula.title | slice:":47" }}</a>
-                            </span><br><br>
-                            <p class="card-description">{{sumula.enunciado | slice:'200'}}</p>
+                            </span><br>
+                            <p class="card-description">{{sumula.enunciado | slice:'140'}}</p>
                         </div>
                         <div class="mt-auto">
                             <div class="d-flex justify-content-between align-items-center">
