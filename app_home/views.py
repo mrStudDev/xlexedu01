@@ -45,6 +45,7 @@ class XlexHomeView(ListView):
         if home_site_object:
             home_site_object.update_views()  # Aumenta as visualizações diretamente
             context['home_site'] = home_site_object  # Adiciona o objeto HomeSite ao contexto
+            context['indexable'] = True 
             context['indexable'] = home_site_object.is_indexable()  # Supondo que `is_indexable()` é um método em HomeSite
             context["hide_navbar"] = True
             context['canonical_url'] = self.request.build_absolute_uri()
