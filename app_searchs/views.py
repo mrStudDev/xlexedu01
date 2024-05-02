@@ -1,6 +1,7 @@
 from app_juris_stj.models import STJjurisprudenciaModel
 from app_sumulas.models import SumulaModel
 from django.db.models import Q
+from django.contrib.postgres.search import SearchVector
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import UniversalSearchForm, AdvancedSearchForm, SumulaSearchForm
@@ -63,7 +64,7 @@ def universal_search_view(request):
         'indexable': True,
     })
 
-
+# Busca Jurisprudências STJ
 def advanced_search_view(request):
     queryset = STJjurisprudenciaModel.objects.all()
     search_performed = False
@@ -117,10 +118,9 @@ def advanced_search_view(request):
         date_range = STJjurisprudenciaModel.objects.aggregate(Min('data_formatada'), Max('data_formatada'))
         earliest_date = date_range['data_formatada__min']
         latest_date = date_range['data_formatada__max']
-        return render(request, 'templates_search/advanced_search_view.html', {'total_records': total_records,'earliest_date': earliest_date,'latest_date': latest_date, 'hide_sidebar': True, 'indexable': True,})
+        return render(request, 'templates_search/advanced_search_view.html', {'total_records': total_records,'earliest_date': earliest_date,'latest_date': latest_date, 'hide_sidebar': True, 'indexable': True,})    
     
-    
-
+# Resultados da Busca de Jurisprudências em STJ
 def advanced_results_view(request):
     # Lógica para atualizar a contagem de visualizações
     page_stj, created = PageView.objects.get_or_create(
@@ -161,7 +161,7 @@ def advanced_results_view(request):
     })
 
 
-
+# Buscas de Súmulas
 def sumula_search_view(request):
     page, created = PageView.objects.get_or_create(
         page_name="Resultados de Pesquisa Súmulas",
