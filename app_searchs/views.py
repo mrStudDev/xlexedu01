@@ -60,6 +60,7 @@ def universal_search_view(request):
         'vector': vector,
         'search_performed': search_performed,
         'results': paged_results,
+        'indexable': True,
     })
 
 
@@ -116,7 +117,7 @@ def advanced_search_view(request):
         date_range = STJjurisprudenciaModel.objects.aggregate(Min('data_formatada'), Max('data_formatada'))
         earliest_date = date_range['data_formatada__min']
         latest_date = date_range['data_formatada__max']
-        return render(request, 'templates_search/advanced_search_view.html', {'total_records': total_records,'earliest_date': earliest_date,'latest_date': latest_date, 'hide_sidebar': True,})
+        return render(request, 'templates_search/advanced_search_view.html', {'total_records': total_records,'earliest_date': earliest_date,'latest_date': latest_date, 'hide_sidebar': True, 'indexable': True,})
     
     
 
@@ -156,6 +157,7 @@ def advanced_results_view(request):
         'results': paged_results,  # Certifique-se de que o template use 'results' para iterar
         'search_performed': True,
         'hide_sidebar': True,
+        'indexable': True,
     })
 
 
@@ -206,6 +208,7 @@ def sumula_search_view(request):
         'total_records': total_records, 
         'search_performed': search_performed, 
         'hide_sidebar': True,
+        'indexable': True,
     })
 
 
