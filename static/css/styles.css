@@ -346,7 +346,7 @@ p {
     color: #333;
 }
 /* styles.css */
-.link-stj a{
+.link-stj a {
     color: rgb(113, 113, 113); /* Cor inicial do link */
     text-decoration: none; /* Remove o sublinhado */
 }
