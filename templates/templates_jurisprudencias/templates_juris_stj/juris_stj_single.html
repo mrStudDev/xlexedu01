@@ -58,12 +58,30 @@
         <a class="btn bg-dark text-light btn-sm" href="{% url 'app_searchs:advanced-searchs-view' %}">Formulário de busca</a>        
     </center>
     <br>
+    <div class="text-destaque">
+    <p>A jurisprudência, constituída por decisões judiciais que interpretam e aplicam as 
+        leis ao resolver casos concretos, é fundamental para garantir a uniformidade e 
+        previsibilidade na aplicação do direito. No Brasil, o Superior Tribunal de Justiça (STJ) 
+        desempenha um papel importante nesse processo, sendo responsável pela uniformização da 
+        interpretação da legislação federal. O STJ não apenas 
+        resolve conflitos entre partes de diferentes regiões do país, mas também estabelece 
+        diretrizes que orientam o entendimento e a aplicação das leis em todo o território 
+        nacional, influenciando significativamente o desenvolvimento jurídico brasileiro. 
+        Através de suas súmulas e decisões, o STJ contribui para a consolidação de uma 
+        jurisprudência coesa e coerente, essencial para a estabilidade jurídica e a segurança 
+        dos direitos individuais e coletivos.</p>
+        <p>Visite o site do Superior Tribunal de Justiça: 
+            <a href="https://www.stj.jus.br/sites/portalp/Inicio" target="_blank" rel="noopener noreferrer">Superior Tribunal de Justiça</a>
+        </p>
+    </div>
     <hr>
     <span>
         <h2 class="upper-destaque" style="text-transform: uppercase;">{{object.title}}</h2>
         <small>Fonte: Dados Abertos - <strong>Superior Tribunal de Justiça - STJ</strong></small><br>       
         <small>Chave-x: <strong>{{object.title}}</strong></small><br>
         <small>Ministro Relator: <strong>{{object.ministroRelator }}</strong></small><br>
+        <small>Fonte: <strong>Superior Tribunal de Justiça</strong></small><br>
+        <small>Dados abertos: <strong><a href="https://www.stj.jus.br/sites/portalp/Inicio" target="_blank" rel="noopener noreferrer">Superior Tribunal de Justiça</a></strong></small><br>
         <small>Views: {{object.views}}</small><br>
         <span class="coracao">&#9829; &#9829; &#9829; &#9829; &#9829;</span>
         <small style="color: rgb(154, 152, 152);"><i>Xlex Love Lex</i></small>
