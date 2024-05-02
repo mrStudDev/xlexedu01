@@ -668,6 +668,19 @@ a:hover {
     .card-body {
         min-height: 444px;
     }
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .footer-nav ul li {
+        margin: 10px 0;
+    }
 }
 
 @media (min-width: 992px) {
