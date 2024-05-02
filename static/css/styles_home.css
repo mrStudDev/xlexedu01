@@ -247,7 +247,7 @@ hr {
     margin-top: 20px; /* Adiciona espaço acima do texto destacado */
 }
 @media (max-width: 768px) {
-    .container {
+    .container-nav {
         flex-direction: column;
         text-align: center;
     }

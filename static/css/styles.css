@@ -553,7 +553,7 @@ details > summary:hover {
     color: #c9f5a8; /* Cor ao passar o mouse */
 }
 @media (max-width: 768px) {
-    .container {
+    .container-nav {
         flex-direction: column;
         text-align: center;
     }
