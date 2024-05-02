@@ -346,11 +346,11 @@ p {
     color: #333;
 }
 /* styles.css */
-.link-stj {
+.link-stj a{
     color: rgb(113, 113, 113); /* Cor inicial do link */
     text-decoration: none; /* Remove o sublinhado */
 }
-.link-stj:hover {
+.link-stj a:hover {
     color: blue; /* Cor do link quando o mouse está sobre ele */
 }
 
