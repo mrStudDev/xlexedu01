@@ -246,6 +246,21 @@ hr {
     letter-spacing: 0.2em;
     margin-top: 20px; /* Adiciona espaço acima do texto destacado */
 }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .footer-nav ul li {
+        margin: 10px 0;
+    }
+}
 /* End Footer items*/
 
 
@@ -300,19 +315,6 @@ hr {
     }
     .description-footer {
         font-size: 15px;
-    }
-    .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-nav ul {
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    .footer-nav ul li {
-        margin: 10px 0;
     }
 }
 
