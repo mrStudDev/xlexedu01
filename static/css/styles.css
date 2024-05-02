@@ -552,7 +552,22 @@ details > summary:hover {
 .footer-nav ul li a:hover {
     color: #c9f5a8; /* Cor ao passar o mouse */
 }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .footer-nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .footer-nav ul li {
+        margin: 10px 0;
+    }
+}
+/* End FOOTER*/
 /* Melhorar a visibilidade e interatividade de links */
 
 a:hover {
