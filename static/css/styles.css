@@ -345,6 +345,14 @@ p {
 .small-info strong {
     color: #333;
 }
+/* styles.css */
+.link-stj {
+    color: rgb(113, 113, 113); /* Cor inicial do link */
+    text-decoration: none; /* Remove o sublinhado */
+}
+.link-stj:hover {
+    color: blue; /* Cor do link quando o mouse está sobre ele */
+}
 
 /* SIDEBAR - PRINCÍPIOS*/
 #side-hero {
