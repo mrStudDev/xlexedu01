@@ -7,6 +7,7 @@ class CreateCasoForm(forms.ModelForm):
         model = CasoConcretoModel
         fields = [
             'title',
+            'meta_title',
             'disciplina',
             'ramo_direito',
             'pergunta_caso',
@@ -20,6 +21,7 @@ class CreateCasoForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Title'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['disciplina'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Disciplina'})
         self.fields['ramo_direito'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ramo do Direito'})
         self.fields['pergunta_caso'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Pergunta caso'})
@@ -40,6 +42,7 @@ class UpdateCasoForm(forms.ModelForm):
         model = CasoConcretoModel
         fields = [
             'title',
+            'meta_title',
             'disciplina',
             'ramo_direito',
             'pergunta_caso',
@@ -53,6 +56,7 @@ class UpdateCasoForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Title'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['disciplina'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Disciplina'})
         self.fields['ramo_direito'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ramo do Direito'})
         self.fields['pergunta_caso'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Pergunta caso'})
