@@ -42,6 +42,7 @@ class TagCasoModel(models.Model):
 
 class CasoConcretoModel(models.Model):
     title = models.CharField(max_length=155, unique=True)
+    meta_title = models.CharField(max_length=60, default="Casos Concretos")
     disciplina = models.ForeignKey(DisciplinaCasosModel, on_delete=models.CASCADE)
     ramo_direito = models.ForeignKey(RamoDireitoModel, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now=False, auto_now_add=True)  # Corrigido para DateTimeField
