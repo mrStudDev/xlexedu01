@@ -88,9 +88,8 @@ WSGI_APPLICATION = 'xlexapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-
 """
+
 # Database localhost
 DATABASES = {
     'default': {
@@ -117,6 +116,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation

@@ -14,7 +14,7 @@ class HomeSite(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
     site_description = models.TextField()  # Alterado para TextField
-    meta_title = models.CharField(max_length=255, default="Default Meta Title")
+    meta_title = models.CharField(max_length=60, default="Default Meta Title")
     meta_description = models.TextField(max_length=320)  # Capacidade aumentada
     founder = models.CharField(max_length=100)
     keyword = models.CharField(max_length=255)

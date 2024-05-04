@@ -5,7 +5,8 @@ class CreateArticleSocialForm(forms.ModelForm):
     class Meta:
         model = ArticlesSocialModel
         fields = [
-            'title', 
+            'title',
+            'meta_title',
             'author', 
             'summary',
             'key_words',
@@ -20,6 +21,7 @@ class CreateArticleSocialForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Titulo do Artigo'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['author'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Author'})
         self.fields['summary'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Sumário'})
         self.fields['key_words'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Palavras Chave do Artigo'})
@@ -39,7 +41,8 @@ class UpdateArticleSocialForm(forms.ModelForm):
     class Meta:
         model = ArticlesSocialModel
         fields = [
-            'title', 
+            'title',
+            'meta_title',            
             'summary',
             'key_words',
             'category', 
@@ -53,6 +56,7 @@ class UpdateArticleSocialForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Titulo do Artigo'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['summary'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Sumário'})
         self.fields['key_words'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Palavras Chave do Artigo'})
         self.fields['category'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Categoria'})
