@@ -65,6 +65,7 @@ class TagQuestionModel(models.Model):
 
 class XlexQuestionModel(models.Model):
     title = models.CharField(max_length=255)
+    meta_title = models.CharField(max_length=60, default="Questão FGV - OAB")
     banca = models.ForeignKey(BancaQuestionModel, on_delete=models.CASCADE)  
     disciplina = models.ForeignKey(DisciplinaQuestionModel, on_delete=models.CASCADE)
     ramo_direito = models.ForeignKey(RamoDireitoQuestionModel, on_delete=models.CASCADE)

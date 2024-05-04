@@ -10,11 +10,10 @@ from .models import (
     )
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('date_created', 'indexable', '__str__')  # Adiciona indexable e mantém __str__
-    list_editable = ('indexable',)  # Permite que indexable seja editável diretamente na lista
-    list_filter = ('indexable',)  # Adiciona indexable aos filtros
-    list_filter = ["date_created"]
-    search_fields = ["title"]
+    list_display = ('title', 'meta_title', 'is_published', 'indexable')
+    list_editable = ('meta_title', 'is_published', 'indexable')
+    list_filter = ('indexable', 'date_created')  # Combina ambos os filtros em uma única declaração
+    search_fields = ['title', 'meta_title', 'question_ask']
     prepopulated_fields = {"slug": ("title",)}
 
     class Meta:

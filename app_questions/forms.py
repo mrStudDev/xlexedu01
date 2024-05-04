@@ -6,11 +6,12 @@ from .models import XlexQuestionModel, AlternativasModel
 class CreateXlexQuestionForm(forms.ModelForm):
     class Meta:
         model = XlexQuestionModel
-        fields = ['title', 'banca', 'disciplina', 'ramo_direito', 'question_ask', 'fundaments', 'tags', 'meta_description', 'keyword','is_published',]
+        fields = ['title', 'meta_title', 'banca', 'disciplina', 'ramo_direito', 'question_ask', 'fundaments', 'tags', 'meta_description', 'keyword','is_published',]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Title'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['banca'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Banca'})
         self.fields['disciplina'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Disciplina'})
         self.fields['ramo_direito'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ramo Direito'})
