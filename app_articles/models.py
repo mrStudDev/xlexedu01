@@ -30,7 +30,8 @@ class TagArticlesModel(models.Model):
 
 
 class ArticlesModel(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=60)
+    meta_title = models.CharField(max_length=60, default="Default Meta Title")
     author = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     summary = models.TextField(blank=True, null=True)
     key_words = models.CharField(max_length=255, default="Artigos")
