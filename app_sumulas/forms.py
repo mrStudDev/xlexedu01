@@ -6,6 +6,7 @@ class CreateSumulaForm(forms.ModelForm):
         model = SumulaModel
         fields = [
             'title',
+            'meta_title',
             'numero_sumula',
             'sigla_tribunal',
             'nome_tribunal',
@@ -20,6 +21,7 @@ class CreateSumulaForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Title'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['numero_sumula'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Número da Súmula'})
         self.fields['sigla_tribunal'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Sigla Tribunal'})
         self.fields['nome_tribunal'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Nome Tribunal'})
@@ -41,6 +43,7 @@ class UpdateSumulaForm(forms.ModelForm):
         model = SumulaModel
         fields = [
             'title',
+            'meta_title',
             'numero_sumula',
             'sigla_tribunal',
             'nome_tribunal',
@@ -55,6 +58,7 @@ class UpdateSumulaForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Title'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['numero_sumula'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Número da Súmula'})
         self.fields['sigla_tribunal'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Sigla Tribunal'})
         self.fields['nome_tribunal'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Nome Tribunal'})

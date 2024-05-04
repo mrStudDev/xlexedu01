@@ -20,7 +20,8 @@ class SiglaTribSumulaModel(models.Model):
         return self.name  
     
 class SumulaModel(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=155)
+    meta_title = models.CharField(max_length=60, default="Sumulas")
     numero_sumula = models.CharField("Número da Súmula", max_length=9)
     sigla_tribunal = models.ForeignKey(SiglaTribSumulaModel, null=True, blank=True, on_delete=models.SET_NULL)
     nome_tribunal = models.ForeignKey(TribNameSumulaModel, null=True, blank=True, on_delete=models.SET_NULL)
