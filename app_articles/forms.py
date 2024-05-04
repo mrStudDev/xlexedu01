@@ -6,7 +6,7 @@ class CreateArticleForm(forms.ModelForm):
         model = ArticlesModel
         fields = [
             'title',
-            'meta_tilte',
+            'meta_title',
             'author', 
             'summary',
             'key_words',
