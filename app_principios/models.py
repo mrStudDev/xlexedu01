@@ -18,6 +18,7 @@ class RamoDireitoModel(models.Model):
 
 class PrincipiosModel(models.Model):
     principio_name = models.CharField(max_length=255)
+    meta_title = models.CharField(max_length=60, default="Princípios do Direito")
     ramo_direito = models.ForeignKey(RamoDireitoModel, null=True, blank=True, on_delete=models.SET_NULL)
     content_principio = models.TextField(blank=True, null=True, default="Principio")
     meta_description = models.TextField(max_length=160)

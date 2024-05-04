@@ -7,6 +7,7 @@ class CreatePrincipioForm(forms.ModelForm):
         model = PrincipiosModel
         fields = [
             'principio_name',
+            'meta_title',
             'ramo_direito',
             'content_principio',
             'meta_description',
@@ -16,6 +17,7 @@ class CreatePrincipioForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['principio_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Nome do Principio'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['ramo_direito'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ramo do Direito'})
         self.fields['content_principio'].widget.attrs.update({'id': 'editor-content-principios', 'class': 'form-control', 'placeholder': 'Texto Do Princípio'})
         self.fields['meta_description'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Descrição'})
@@ -32,6 +34,7 @@ class UpdatePrincipioForm(forms.ModelForm):
         model = PrincipiosModel
         fields = [
             'principio_name',
+            'meta_title',
             'ramo_direito',
             'content_principio',
             'meta_description',
@@ -41,6 +44,7 @@ class UpdatePrincipioForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['principio_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Nome do Principio'})
+        self.fields['meta_title'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Meta Titulo'})
         self.fields['ramo_direito'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Ramo do Direito'})
         self.fields['content_principio'].widget.attrs.update({'id': 'editor-content-principios', 'class': 'form-control', 'placeholder': 'Texto Do Princípio'})
         self.fields['meta_description'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Descrição'})
