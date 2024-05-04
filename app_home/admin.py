@@ -2,10 +2,10 @@ from django.contrib import admin
 from .models import HomeSite, TagSiteModel, ContactMessagesModel
 
 class SiteAdmin(admin.ModelAdmin):
-    list_display = ('title', 'indexable', '__str__')
-    list_editable = ('indexable',)  # Permite que indexable seja editável diretamente na lista
-    list_filter = ('indexable',)  # Adiciona indexable aos filtros
-    search_fields = ('title',)
+    list_display = ('title', 'meta_title', 'date_created', 'is_published', 'indexable')
+    list_editable = ('meta_title', 'is_published', 'indexable')
+    list_filter = ('indexable', 'date_created')  # Combina ambos os filtros em uma única declaração
+    search_fields = ['title', 'meta_title']
     prepopulated_fields = {"slug": ("title",)}
 
     class Meta:
