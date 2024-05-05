@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-1jsewb%sc@lalr_&s#+!_s3oov2ybrq=tw#ax*lki_$eub-i2p
 DEBUG = False
 #DEBUG = True
 
-ALLOWED_HOSTS = ['www.xlexedu.com', 'xlexedu.com', '34.30.228.75']
+ALLOWED_HOSTS = ['xlexedu.com', 'www.xlexedu.com', '34.30.228.75']
 #ALLOWED_HOSTS = []
 
 # Application definition
