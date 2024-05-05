@@ -24,4 +24,4 @@ class ContactAdmin(admin.ModelAdmin):
 
 admin.site.register(HomeSite, SiteAdmin)
 admin.site.register(TagSiteModel, TagSiteAdmin)
-
+admin.site.register(ContactMessagesModel, ContactAdmin)
