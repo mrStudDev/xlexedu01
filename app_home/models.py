@@ -48,7 +48,10 @@ class ContactMessagesModel(models.Model):
     subject = models.CharField(max_length=150)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    
+    indexable = models.BooleanField(default=True)  # Novo campo para SEO
+
+    def is_indexable(self):
+        return self.indexable   
     
     def __str__(self):
         return self.subject
