@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
         [{ 'color': [] },], // Cor do texto Fonte
         [{ 'align': [] }], // Alinhamento
 
+        ['link'], // Adiciona o botão de link
+
         ['clean'] // Remove formatações
     ];
     // Inicialização do Quill
