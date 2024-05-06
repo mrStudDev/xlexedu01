@@ -81,7 +81,7 @@ def contact_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()  # Salva a mensagem no banco de dados
-            return render(request, 'contact_us.html', {'form': ContactForm(), 'success': True, 'hide_sidebar': True,})
+            return render(request, 'contact_us.html', {'form': ContactForm(), 'success': True, 'hide_sidebar': True, 'indexable':True})
     else: # Redireciona para uma URL de sucesso
         form = ContactForm()
     return render(request, 'contact_us.html', {'form': form, 'hide_sidebar': True,})
