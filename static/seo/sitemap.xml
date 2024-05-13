@@ -7,6 +7,11 @@
     <priority>1.00</priority>
   </url>
   <url>
+    <loc>https://www.xlexedu.com/</loc>
+    <lastmod>2024-05-10T04:12:54+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
     <loc>https://xlexedu.com/articles/</loc>
     <lastmod>2024-05-10T04:12:54+00:00</lastmod>
     <priority>0.80</priority>
@@ -373,6 +378,34 @@
   </url>
   <url>
     <loc>https://xlexedu.com/seachs/advanced/</loc>
+    <lastmod>2024-05-10T04:12:54+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>
+      https://xlexedu.com/jurisprudencias-stj/
+    </loc>
+    <lastmod>2024-05-10T04:12:54+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>
+      https://xlexedu.com/jurisprudencias/
+    </loc>
+    <lastmod>2024-05-10T04:12:54+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>
+      https://www.xlexedu.com/jurisprudencias-stj/
+    </loc>
+    <lastmod>2024-05-10T04:12:54+00:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+  <url>
+    <loc>
+      https://www.xlexedu.com/jurisprudencias/
+    </loc>
     <lastmod>2024-05-10T04:12:54+00:00</lastmod>
     <priority>0.51</priority>
   </url>
@@ -877,6 +910,16 @@
   </url>
   <url>
     <loc>https://xlexedu.com/sumulas/sumula-singular/sumula-51-do-superior-tribunal-de-justica/</loc>
+    <lastmod>2024-05-10T04:12:54+00:00</lastmod>
+    <priority>0.41</priority>
+  </url>
+  <url>
+    <loc>https://xlexedu.com/seachs/sumula-search/</loc>
+    <lastmod>2024-05-10T04:12:54+00:00</lastmod>
+    <priority>0.41</priority>
+  </url>
+  <url>
+    <loc>https://www.xlexedu.com/seachs/sumula-search/</loc>
     <lastmod>2024-05-10T04:12:54+00:00</lastmod>
     <priority>0.41</priority>
   </url>
