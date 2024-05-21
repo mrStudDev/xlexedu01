@@ -113,3 +113,39 @@ class JurisprudenciasListView(TemplateView):
         context = {'hide_sidebar': True}
         context['indexable'] = True 
         return self.render_to_response(context)
+
+class HumanrightsView(TemplateView):
+    template_name = 'human_rights.html'
+
+    def get(self, request, *args, **kwargs):
+        # Lógica para registrar acesso usando PageView
+        page, created = PageView.objects.get_or_create(
+            page_name="Human Ritghts",
+            defaults={'last_accessed': timezone.now()}
+        )
+        if not created:
+            page.view_count += 1
+            page.last_accessed = timezone.now()
+            page.save()
+
+        context = {'hide_sidebar': True}
+        context['indexable'] = True 
+        return self.render_to_response(context)
+
+class DireitosHumanosView(TemplateView):
+    template_name = 'direitos_humanos.html'
+
+    def get(self, request, *args, **kwargs):
+        # Lógica para registrar acesso usando PageView
+        page, created = PageView.objects.get_or_create(
+            page_name="Direitos Humanos",
+            defaults={'last_accessed': timezone.now()}
+        )
+        if not created:
+            page.view_count += 1
+            page.last_accessed = timezone.now()
+            page.save()
+
+        context = {'hide_sidebar': True}
+        context['indexable'] = True 
+        return self.render_to_response(context)
