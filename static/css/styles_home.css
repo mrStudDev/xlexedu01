@@ -16,7 +16,7 @@ body {
 }
 
 p {
-    font-size: 0.9rem;
+    font-size: 0.8em;
     font-family: 'Merriweather', serif;
 }
 .welcome-container {
@@ -77,7 +77,11 @@ p {
 .container.mt-5 {
     padding-top: 16px; 
 }
-
+.content-container {
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 20px; 
+}
 /* Coração */
 .coracao {
     display: inline-block; /* Para permitir que a largura e a altura sejam aplicadas */
@@ -190,6 +194,40 @@ hr {
     margin-bottom: 60px; /* Margem inferior */
     background-color: rgba(255, 255, 255, 0.7); /* Fundo branco com transparência */
     padding: 54px; /* Espaçamento interno */
+}
+.info-final p {
+    margin: 10px 0; 
+}
+/* Juris Info General */
+.info-general {
+    background-color: #fafafa; /* Cor de fundo claro para a divisão */
+    border: 1px solid #ddd; /* Borda sutil */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    margin: 20px 0; /* Margem externa para separar de outros elementos */
+    font-family: 'Merriweather', serif; /* Fonte legível e formal */
+}
+
+.info-general h4 {
+    color: #000000; /* Cor azul para destacar o título */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+.info-general hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 86, 179, 0.75), rgba(0, 0, 0, 0)); /* Gradiente horizontal para a linha */
+    margin-bottom: 20px; /* Espaçamento após a linha */
+}
+
+.info-general p {
+    font-size: 12px; /* Tamanho da fonte confortável para leitura */
+    line-height: 1.5; /* Espaçamento de linha para melhor legibilidade */
+    margin-bottom: 10px; /* Espaçamento entre parágrafos */
+}
+
+.info-general p strong {
+    color: #333; /* Cor escura para enfatizar textos em negrito */
 }
 
 /* FOOTER */

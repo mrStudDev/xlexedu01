@@ -88,18 +88,7 @@ p {
     width: 63px;
     height: auto;
 }
-main {
-    padding: 2rem;
-}
 
-#preambulo, #artigos {
-    margin-bottom: 2rem;
-}
-
-article {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 1rem;
-}
 /* End Text - highlighted*/
 
 #title-post-h1 {
