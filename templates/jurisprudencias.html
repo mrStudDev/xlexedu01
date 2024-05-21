@@ -108,5 +108,45 @@
         </div>
     </div>
 </body>
+<footer>
+    <div class="footer-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <a href="/">
+                <img src="{% static 'images/logo_footer.png' %}" alt="Logo da Xlex Educação e Pesquisa Jurídica" width="76px">
+            </a>
+        </div>
+  
+        <!-- Highlighted Text and Views Count -->
+        <h2 class="highlighted-text">XLEX, LOVE LEX!</h2>
+        {% if views_count %}
+        <p>Views: {{ views_count }}</p>
+        {% endif %}
+    
+        <!-- Footer Description -->
+        <div class="description-footer">
+            <h6>Agradecemos sua visita e o interesse pelo nosso conteúdo. Convidamos você a explorar outras seções do site. Faça um tour!</h6>
+        </div>
+        
+        <!-- Brand Information -->
+        <div class="footer-brand-info">
+            <p>&copy; 2023 Xlex Educação Pesquisa Jurídica e Desenvolvimento Social. Todos os direitos reservados.</p>
+            <small style="color:gray">By: Marcos Rodrigues</small>
+        </div>
+    </div>
+    <div class="footer-navbar">
+        <div class="container-nav">
+            <nav class="footer-nav">
+                <ul class="footer-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{% url 'app_home:sobre-nos' %}">Sobre Nós</a></li>
+                    <li><a href="{% url 'app_home:contact-us' %}">Contato</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</footer>
+  
 <script src="{% static 'js/phrase_tribunais.js' %}"></script>
 </html>
