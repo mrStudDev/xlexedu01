@@ -40,7 +40,6 @@ p {
     font-family: 'Merriweather', serif;
     color: white;
 }
-
 .hero-section  {
     background: linear-gradient(to bottom right, #000a19, #000000);
     font-family: 'Merriweather', serif;
@@ -49,7 +48,6 @@ p {
     text-align: center;
     padding-bottom: 19px; 
 }
-
 .site-title {
     font-size: 1.2rem;
     margin-bottom: 10px;
@@ -61,17 +59,33 @@ p {
     animation: titleGlow 3s infinite alternate;
     letter-spacing: 0.1em;
 }
-
 #site-description{
     font-size: 13px;
     font-family: 'Merriweather', serif;
 
 }
-/* Text - highlighted*/
-.highlighted-text, #highlighted-text, #titulo-xlex {
+/* Hero Text - ID titulo-xlex*/
+.highlighted-text, #titulo-xlex {
     background-image: linear-gradient(to right, #3f74a6, #c9f5a8, #f69d3c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.logo-section {
+    position: relative; 
+    text-align: center;
+    height: 0; 
+    overflow: visible; 
+}
+
+.logo-section a {
+    display: inline-block;
+    position: relative;
+    top: -34px;
+}
+
+.logo-section img {
+    width: 63px;
+    height: auto;
 }
 /* End Text - highlighted*/
 
