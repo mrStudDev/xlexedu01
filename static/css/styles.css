@@ -40,6 +40,7 @@ p {
     font-family: 'Merriweather', serif;
     color: white;
 }
+
 .hero-section  {
     background: linear-gradient(to bottom right, #000a19, #000000);
     font-family: 'Merriweather', serif;
@@ -86,6 +87,18 @@ p {
 .logo-section img {
     width: 63px;
     height: auto;
+}
+main {
+    padding: 2rem;
+}
+
+#preambulo, #artigos {
+    margin-bottom: 2rem;
+}
+
+article {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
 }
 /* End Text - highlighted*/
 
