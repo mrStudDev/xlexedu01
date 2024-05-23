@@ -33,38 +33,6 @@ p {
     font-family: 'Merriweather', serif;
 }
 
-.welcome-container {
-    text-align: center;
-    background: linear-gradient(to bottom right, #000a19, #000000);
-    padding: 20px;
-    font-family: 'Merriweather', serif;
-    color: white;
-}
-
-.hero-section  {
-    background: linear-gradient(to bottom right, #000a19, #000000);
-    font-family: 'Merriweather', serif;
-    color: white;
-    position: relative; 
-    text-align: center;
-    padding-bottom: 19px; 
-}
-.site-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-family: 'Merriweather', serif;
-    position: relative;
-    background-image: linear-gradient(to right, #3f87a6, #ebf8e1, #f69d3c);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: titleGlow 3s infinite alternate;
-    letter-spacing: 0.1em;
-}
-#site-description{
-    font-size: 13px;
-    font-family: 'Merriweather', serif;
-
-}
 /* Hero Text - ID titulo-xlex*/
 .highlighted-text, #titulo-xlex {
     background-image: linear-gradient(to right, #3f74a6, #c9f5a8, #f69d3c);
@@ -427,23 +395,6 @@ p {
     line-height: 1.5; /* Espaçamento da linha para melhorar a leitura */
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-th {
-    background-color: #565656;
-    color: white;
-}
-tr:hover {background-color: #f5f5f5;}
-
-
 
 /* Paginação */
 .pagination {
@@ -542,7 +493,6 @@ details > summary:hover {
     font-size: 14px;
     text-align: justify;
 }
-
 
 .footer-container {
     width: 100%;
