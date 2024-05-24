@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{ page.page_name }}</td>
                         <td>{{ page.view_count }}</td>
-                        <td>{{ page.last_accessed | date:"d de M de Y às H:i" }}</td>  
+                        <td>{{ page.last_accessed | time:"H:i"}}</td>  
                     </tr>
                     {% empty %}
                     <tr>
