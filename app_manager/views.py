@@ -19,7 +19,7 @@ class ManagerView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         # Buscando todos os PageViews
         context['page'] = PageView.objects.all()
 
@@ -31,7 +31,8 @@ class ManagerView(ListView):
             page.last_accessed = page.last_accessed.strftime("%d de %b de %Y às %H:%M")
 
         # Calculando o total de visualizações de todas as páginas
-        context['total_views'] = PageView.objects.aggregate(total=Sum('view_count'))['total'] or 0
+        total_views_all_pages = PageView.objects.aggregate(total=Sum('view_count'))['total'] or 0
+        context['total_views_all_pages'] = total_views_all_pages  # Novo nome para evitar conflito
 
         # Configurações adicionais para o template (provavelmente relacionadas ao layout)
         context["hide_sidebar"] = True
